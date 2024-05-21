@@ -18,7 +18,7 @@ package org.kantega.reststop.servlet.api;
 
 import org.kantega.reststop.api.PluginExport;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 import java.util.Collection;
 
 /**

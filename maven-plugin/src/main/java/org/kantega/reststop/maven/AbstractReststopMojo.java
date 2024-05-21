@@ -36,7 +36,7 @@ import org.eclipse.aether.resolution.DependencyResolutionException;
 import org.eclipse.aether.resolution.DependencyResult;
 import org.eclipse.aether.util.artifact.JavaScopes;
 import org.eclipse.aether.util.filter.DependencyFilterUtils;
-import org.eclipse.jetty.maven.plugin.JettyWebAppContext;
+import org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext;
 import org.eclipse.jetty.server.Server;
 import org.kantega.reststop.classloaderutils.CircularDependencyException;
 import org.kantega.reststop.classloaderutils.PluginInfo;
@@ -96,7 +96,7 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
     protected List<org.apache.maven.model.Dependency> containerDependencies;
 
 
-    protected void customizeContext(JettyWebAppContext context) {
+    protected void customizeContext(MavenWebAppContext context) {
 
     }
 
@@ -228,7 +228,7 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
                     if(isPlugin) {
                         shouldBeProvided.put(dep.getGroupIdAndArtifactId(), dep);
                         getLog().error("Plugin " + pluginInfo.getPluginId() +" depends on plugin artifact " + dep.getPluginId() +" which must be in <scope>provided</scope> and declared as a <plugin>!");
-                        String decl = String.format("\t<plugin>\n\t\t<groupId>%s</groupId>\n\t\t<artifactId>%s</artifactId>\n\t\t<version>%s</version>\n\t</plugin>", dep.getGroupId(), dep.getArtifactId(), dep.getVersion());
+                        String decl = "\t<plugin>\n\t\t<groupId>%s</groupId>\n\t\t<artifactId>%s</artifactId>\n\t\t<version>%s</version>\n\t</plugin>".formatted(dep.getGroupId(), dep.getArtifactId(), dep.getVersion());
                         getLog().error("Please add the following to your <plugins> section:\n" + decl);
                     }
 
@@ -264,7 +264,7 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
                         missing.put(dep.getGroupIdAndArtifactId(), dep);
                         File pomFile = new File(mavenProject.getBasedir(), "pom.xml");
                         getLog().error("Plugin " + pluginInfo.getPluginId() +" depends on the plugin " + dep.getPluginId() +" which is not declared as a <plugin> in " + pomFile);
-                        String decl = String.format("\t<plugin>\n\t\t<groupId>%s</groupId>\n\t\t<artifactId>%s</artifactId>\n\t\t<version>%s</version>\n\t</plugin>", dep.getGroupId(), dep.getArtifactId(), dep.getVersion());
+                        String decl = "\t<plugin>\n\t\t<groupId>%s</groupId>\n\t\t<artifactId>%s</artifactId>\n\t\t<version>%s</version>\n\t</plugin>".formatted(dep.getGroupId(), dep.getArtifactId(), dep.getVersion());
                         getLog().error("Please add the following to maven-reststop-plugin's <plugins> section in " +pomFile + ":\n" + decl);
                     }
 
@@ -319,7 +319,7 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
 
         File file = new File(repoSession.getLocalRepository().getBasedir(), path);
         try {
-            return file.exists() ? new File(Files.readAllLines(file.toPath(), Charset.forName("utf-8")).get(0)) : null;
+            return file.exists() ? new File(Files.readAllLines(file.toPath(), Charset.forName("utf-8")).getFirst()) : null;
         } catch (IOException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
@@ -352,7 +352,7 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
         for (org.apache.maven.model.Dependency dependency : containerDependencies) {
 
             Artifact dependencyArtifact = resolveArtifact(
-                    String.format("%s:%s:%s", dependency.getGroupId(), dependency.getArtifactId(), dependency.getVersion()));
+                    "%s:%s:%s".formatted(dependency.getGroupId(), dependency.getArtifactId(), dependency.getVersion()));
 
             containerDeps.add(new Dependency(dependencyArtifact, JavaScopes.RUNTIME));
         }
@@ -370,7 +370,7 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
             DependencyResult dependencyResult = repoSystem.resolveDependencies(repoSession, dependencyRequest);
 
             if (!dependencyResult.getCollectExceptions().isEmpty()) {
-                throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().get(0));
+                throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().getFirst());
             }
 
 

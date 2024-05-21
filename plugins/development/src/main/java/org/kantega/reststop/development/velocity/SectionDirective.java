@@ -45,8 +45,7 @@ public class SectionDirective extends Directive {
     public boolean render(InternalContextAdapter context, Writer writer, Node node) throws IOException, ResourceNotFoundException, ParseErrorException, MethodInvocationException {
         final Node firstNode = node.jjtGetChild(0);
         String name;
-        if(firstNode instanceof ASTStringLiteral) {
-            ASTStringLiteral nameNode = (ASTStringLiteral) firstNode;
+        if(firstNode instanceof ASTStringLiteral nameNode) {
             name = nameNode.literal();
 
             name = name.substring(1, name.length()-1);

@@ -19,7 +19,7 @@ package org.kantega.reststop.jaxrs;
 import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.jaxrsapi.ApplicationDeployer;
 
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.core.Application;
 import java.util.Collection;
 
 /**

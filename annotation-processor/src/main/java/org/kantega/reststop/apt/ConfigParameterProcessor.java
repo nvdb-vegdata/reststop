@@ -33,7 +33,7 @@ import java.util.Set;
  *
  */
 @SupportedAnnotationTypes("org.kantega.reststop.api.Config")
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class ConfigParameterProcessor extends AbstractProcessor {
 
 

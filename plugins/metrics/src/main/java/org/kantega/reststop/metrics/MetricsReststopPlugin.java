@@ -23,7 +23,7 @@ import com.codahale.metrics.jvm.*;
 import org.kantega.reststop.api.Export;
 import org.kantega.reststop.api.Plugin;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.lang.management.ManagementFactory;
 
 /**

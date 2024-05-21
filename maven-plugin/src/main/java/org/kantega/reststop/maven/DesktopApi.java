@@ -154,7 +154,7 @@ public class DesktopApi {
 
     private static boolean runCommand(String command, String args, String file) {
 
-        logOut(String.format("Trying to exec:%n   cmd = %s%n   args = %s%n   %s̈́ = %s", command, args, "%s", file));
+        logOut("Trying to exec:%n   cmd = %s%n   args = %s%n   %s̈́ = %s".formatted(command, args, "%s", file));
 
         String[] parts = prepareCommand(command, args, file);
 
@@ -189,7 +189,7 @@ public class DesktopApi {
 
         if (args != null) {
             for (String s : args.split(" ")) {
-                s = String.format(s, file); // put in the filename thing
+                s = s.formatted(file); // put in the filename thing
 
                 parts.add(s.trim());
             }

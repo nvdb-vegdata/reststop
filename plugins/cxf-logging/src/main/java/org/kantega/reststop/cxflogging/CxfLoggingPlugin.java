@@ -17,14 +17,14 @@
 package org.kantega.reststop.cxflogging;
 
 import org.apache.cxf.annotations.SchemaValidation;
+import org.apache.cxf.endpoint.EndpointImpl;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
-import org.apache.cxf.jaxws22.EndpointImpl;
 import org.apache.cxf.message.Message;
 import org.kantega.reststop.api.Export;
 import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.cxf.EndpointCustomizer;
 
-import javax.xml.ws.Endpoint;
+import jakarta.xml.ws.Endpoint;
 
 /**
  *
@@ -41,9 +41,8 @@ public class CxfLoggingPlugin implements EndpointCustomizer {
 
     @Override
     public void customizeEndpoint(Endpoint endpoint) {
-        EndpointImpl e = (EndpointImpl) endpoint;
-
-        e.getServer().getEndpoint().getInInterceptors().add(new LoggingInInterceptor());
-        e.getProperties().put(Message.SCHEMA_VALIDATION_ENABLED, SchemaValidation.SchemaValidationType.BOTH);
+//        EndpointImpl endpointImpl = (EndpointImpl) endpoint;
+//        endpoint.getServer().getEndpoint().getInInterceptors().add(new LoggingInInterceptor());
+//        endpoint.getProperties().put(Message.SCHEMA_VALIDATION_ENABLED, SchemaValidation.SchemaValidationType.BOTH);
     }
 }

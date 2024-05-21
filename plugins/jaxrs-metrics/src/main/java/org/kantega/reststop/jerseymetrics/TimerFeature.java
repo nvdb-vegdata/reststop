@@ -16,11 +16,11 @@
 
 package org.kantega.reststop.jerseymetrics;
 
-import javax.ws.rs.Path;
-import javax.ws.rs.container.*;
-import javax.ws.rs.core.FeatureContext;
-import javax.ws.rs.core.UriBuilder;
-import javax.ws.rs.ext.Provider;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.container.*;
+import jakarta.ws.rs.core.FeatureContext;
+import jakarta.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.ext.Provider;
 
 /**
  *

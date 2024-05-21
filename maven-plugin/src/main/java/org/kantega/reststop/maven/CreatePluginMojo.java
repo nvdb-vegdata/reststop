@@ -139,7 +139,7 @@ public class CreatePluginMojo extends AbstractCreateMojo {
             File pluginDir = new File(pluginsDir, pluginName);
 
             if (pluginDir.exists()) {
-                throw new MojoFailureException(String.format("Plugin %s in %s already exists.", pluginName, pluginsDir));
+                throw new MojoFailureException("Plugin %s in %s already exists.".formatted(pluginName, pluginsDir));
             }
             File pluginPomFile = new File(pluginDir, "pom.xml");
 
@@ -161,7 +161,7 @@ public class CreatePluginMojo extends AbstractCreateMojo {
 
             addNewFilesToGit(pluginsDir, pluginPomFile, pluginClassFile);
 
-            getLog().info(String.format("Successfully generated new plugin '%s' in %s.", pluginName, pluginDir));
+            getLog().info("Successfully generated new plugin '%s' in %s.".formatted(pluginName, pluginDir));
 
             if(false) {
                 Resolver resolver = new Resolver(repoSystem, repoSession, remoteRepos, getLog());
@@ -218,7 +218,7 @@ public class CreatePluginMojo extends AbstractCreateMojo {
             try {
                 pomUtils.addModule(pom, pom, name);
             } catch (IOException | ParserConfigurationException | TransformerException | SAXException e) {
-                throw new MojoExecutionException(String.format("Could not add module %s to pom file %s", name, pom), e);
+                throw new MojoExecutionException("Could not add module %s to pom file %s".formatted(name, pom), e);
             }
         }
     }
@@ -244,7 +244,7 @@ public class CreatePluginMojo extends AbstractCreateMojo {
                         try {
                             pomUtils.addPluginToReststop(pom, pom, groupId, artifactId, version);
                         } catch (IOException | ParserConfigurationException | TransformerException | SAXException | XPathExpressionException e) {
-                            throw new MojoExecutionException(String.format("Could not add plugin %s:%s:%s to pom file %s", groupId, artifactId, version, pom), e);
+                            throw new MojoExecutionException("Could not add plugin %s:%s:%s to pom file %s".formatted(groupId, artifactId, version, pom), e);
                         }
                     }
                 }
@@ -259,9 +259,9 @@ public class CreatePluginMojo extends AbstractCreateMojo {
         try {
             model = reader.read(new FileInputStream(pom));
         } catch (IOException e) {
-            throw new MojoExecutionException(String.format("Could not read file: %s", pom), e);
+            throw new MojoExecutionException("Could not read file: %s".formatted(pom), e);
         } catch (XmlPullParserException e) {
-            throw new MojoExecutionException(String.format("Error parsing XML in file: %s: ", pom), e);
+            throw new MojoExecutionException("Error parsing XML in file: %s: ".formatted(pom), e);
         }
         return model;
     }

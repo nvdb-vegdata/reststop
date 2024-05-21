@@ -72,12 +72,13 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -87,10 +88,10 @@
             <version>1.4</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -102,10 +103,24 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.websocket</groupId>
-            <artifactId>javax.websocket-api</artifactId>
-            <version>1.0</version>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <version>2.1.1</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+            <version>4.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- TODO: Is it correct to place it here? -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>4.0.2</version>
         </dependency>
 
     </dependencies>
@@ -171,9 +186,9 @@
                             <version>${project.parent.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>javax.validation</groupId>
-                            <artifactId>validation-api</artifactId>
-                            <version>1.1.0.Final</version>
+                            <groupId>jakarta.validation</groupId>
+                            <artifactId>jakarta.validation-api</artifactId>
+                            <version>${jakarta-validation.version}</version>
                         </plugin>
                         <plugin>
                             <groupId>org.kantega.reststop</groupId>
@@ -191,8 +206,8 @@
                                     <version>${jersey.version}</version>
                                     <exclusions>
                                         <exclusion>
-                                            <groupId>javax.ws.rs</groupId>
-                                            <artifactId>javax.ws.rs-api</artifactId>
+                                            <groupId>jakarta.ws.rs</groupId>
+                                            <artifactId>jakarta.ws.rs-api</artifactId>
                                         </exclusion>
                                     </exclusions>
                                 </dependency>
@@ -254,14 +269,19 @@
                             <version>${project.parent.version}</version>
                         </dependency>
                         <dependency>
-                            <groupId>javax.servlet</groupId>
-                            <artifactId>javax.servlet-api</artifactId>
-                            <version>3.1.0</version>
+                            <groupId>jakarta.servlet</groupId>
+                            <artifactId>jakarta.servlet-api</artifactId>
+                            <version>${jakarta-servlet.version}</version>
                         </dependency>
                         <dependency>
-                            <groupId>javax.websocket</groupId>
-                            <artifactId>javax.websocket-api</artifactId>
-                            <version>1.0</version>
+                            <groupId>jakarta.websocket</groupId>
+                            <artifactId>jakarta.websocket-api</artifactId>
+                            <version>2.1.1</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>jakarta.xml.ws</groupId>
+                            <artifactId>jakarta.xml.ws-api</artifactId>
+                            <version>4.0.2</version>
                         </dependency>
                     </containerDependencies>
                 </configuration>
@@ -329,23 +349,23 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>JDK9+</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <configuration>
-                            <argLine>--add-modules=java.xml.bind,java.xml.ws</argLine>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>JDK9+</id>-->
+<!--            <activation>-->
+<!--                <jdk>[9,)</jdk>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-failsafe-plugin</artifactId>-->
+<!--                        <configuration>-->
+<!--                            <argLine>&#45;&#45;add-modules=jakarta.xml.bind,jakarta.xml.ws</argLine>-->
+<!--                        </configuration>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
+<!--    </profiles>-->
 </project>

@@ -82,7 +82,7 @@ public abstract class AbstractDistMojo extends AbstractReststopMojo {
     @Parameter
     protected String jettyVersion;
 
-    private final String jettydistPrefix = "org.eclipse.jetty:jetty-distribution:tar.gz:";
+    private final String jettydistPrefix = "org.eclipse.jetty:jetty-home:tar.gz:";
 
     @Parameter(defaultValue = "7.0.42")
     protected String tomcatVersion;
@@ -452,7 +452,7 @@ public abstract class AbstractDistMojo extends AbstractReststopMojo {
         } else {
             Properties props = new Properties();
             try {
-                props.load(getClass().getClassLoader().getResourceAsStream("META-INF/maven/org.eclipse.jetty/jetty-webapp/pom.properties"));
+                props.load(getClass().getClassLoader().getResourceAsStream("META-INF/maven/org.eclipse.jetty.ee10/jetty-ee10-webapp/pom.properties"));
                 return props.getProperty("version");
             } catch (IOException e) {
                 throw new MojoExecutionException("Can't load pom.properties", e);
@@ -511,7 +511,7 @@ public abstract class AbstractDistMojo extends AbstractReststopMojo {
                     throw new MojoFailureException("Failed resolving plugin dependencies", e);
                 }
                 if (!dependencyResult.getCollectExceptions().isEmpty()) {
-                    throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().get(0));
+                    throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().getFirst());
                 }
                 for (ArtifactResult result : dependencyResult.getArtifactResults()) {
                     Artifact artifact = result.getArtifact();

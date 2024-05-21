@@ -176,9 +176,9 @@ public class ConfDocMojo extends AbstractReststopMojo {
         }
 
         if (!missingParameters.isEmpty()) {
-            StringBuilder message = new StringBuilder(String.format("Config file %s is missing the following properties:\n", configFileName));
+            StringBuilder message = new StringBuilder("Config file %s is missing the following properties:\n".formatted(configFileName));
             for (ParamContext missingParameter : missingParameters) {
-                message.append(String.format(" '%s' needed by %s\n", missingParameter.getParam().getParamName(), missingParameter.getKey()));
+                message.append(" '%s' needed by %s\n".formatted(missingParameter.getParam().getParamName(), missingParameter.getKey()));
             }
             if (!suppressWarnings)
                 throw new MojoFailureException(message.toString());
@@ -195,9 +195,9 @@ public class ConfDocMojo extends AbstractReststopMojo {
         }
 
         if (!unknownProperties.isEmpty()) {
-            StringBuilder message = new StringBuilder(String.format("Config file %s contains the following unused properties:\n", configFileName));
+            StringBuilder message = new StringBuilder("Config file %s contains the following unused properties:\n".formatted(configFileName));
             for (String unknownProperty : unknownProperties) {
-                message.append(String.format("'%s'\n", unknownProperty));
+                message.append("'%s'\n".formatted(unknownProperty));
             }
             if (!suppressWarnings)
                 throw new MojoFailureException(message.toString());

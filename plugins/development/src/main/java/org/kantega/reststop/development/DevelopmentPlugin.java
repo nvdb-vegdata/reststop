@@ -24,7 +24,7 @@ import org.kantega.reststop.development.velocity.SectionDirective;
 import org.kantega.reststop.servlet.api.FilterPhase;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 import java.util.ArrayList;
 import java.util.Collection;
 

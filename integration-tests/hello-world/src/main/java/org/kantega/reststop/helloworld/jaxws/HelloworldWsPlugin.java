@@ -21,7 +21,7 @@ import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.jaxwsapi.EndpointConfiguration;
 import org.kantega.reststop.jaxwsapi.EndpointConfigurationBuilder;
 
-import javax.annotation.PreDestroy;
+import jakarta.annotation.PreDestroy;
 
 @Plugin
 public class HelloworldWsPlugin  {

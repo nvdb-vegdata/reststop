@@ -16,7 +16,7 @@
 
 package org.kantega.reststop.jaxrsapi;
 
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.core.Application;
 import java.util.Collection;
 
 /**

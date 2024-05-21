@@ -14,25 +14,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Set up java version
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '8'
+          java-version: '21'
       - name: Get tag from new release
         if: github.event_name == 'release'
         run: echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
-      - name: Get latest release tag
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: echo "RELEASE_TAG=$(git tag --sort=-creatordate | head -n1)-SNAPSHOT" >> $GITHUB_ENV
       - name: Build Maven project
         run: |
           if [ -n "${{ env.RELEASE_TAG }}" ]; then
-            mvn --batch-mode package -Drevision="${{ env.RELEASE_TAG }}"
+            ./mvnw --batch-mode package -Drevision="${{ env.RELEASE_TAG }}"
           else
-            mvn --batch-mode package
+            ./mvnw --batch-mode package
           fi
       - name: Publish package
         if: github.event_name == 'release' || (github.event_name == 'push' && github.ref == 'refs/heads/master')
