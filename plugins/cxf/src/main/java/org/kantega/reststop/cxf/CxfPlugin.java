@@ -24,11 +24,11 @@ import org.kantega.reststop.jaxwsapi.EndpointConfigurationBuilder;
 import org.kantega.reststop.jaxwsapi.EndpointDeployer;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.annotation.PreDestroy;
+import jakarta.annotation.PreDestroy;
 import javax.servlet.Filter;
 import javax.servlet.ServletException;
 import javax.wsdl.Definition;
-import javax.xml.ws.Endpoint;
+import jakarta.xml.ws.Endpoint;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

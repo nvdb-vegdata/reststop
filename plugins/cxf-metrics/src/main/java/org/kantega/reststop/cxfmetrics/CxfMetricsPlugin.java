@@ -27,7 +27,7 @@ import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.cxf.EndpointCustomizer;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.Endpoint;
+import jakarta.xml.ws.Endpoint;
 import java.util.concurrent.TimeUnit;
 
 import static com.codahale.metrics.MetricRegistry.name;
@@ -51,10 +51,12 @@ public class CxfMetricsPlugin implements EndpointCustomizer {
 
     @Override
     public void customizeEndpoint(Endpoint endpoint) {
-        EndpointImpl e = (EndpointImpl) endpoint;
-
-        e.getServer().getEndpoint().getInInterceptors().add(new TimingBeforeInterceptor(Phase.RECEIVE));
-        e.getServer().getEndpoint().getOutInterceptors().add(new TimingAfterInterceptor(Phase.SEND, metricRegistry));
+// Utkommentert fordi SOAP ikke skal brukes av Skriv
+//
+//        EndpointImpl e = (EndpointImpl) endpoint;
+//
+//        e.getServer().getEndpoint().getInInterceptors().add(new TimingBeforeInterceptor(Phase.RECEIVE));
+//        e.getServer().getEndpoint().getOutInterceptors().add(new TimingAfterInterceptor(Phase.SEND, metricRegistry));
     }
 
     private class TimingBeforeInterceptor extends AbstractPhaseInterceptor<Message> {
