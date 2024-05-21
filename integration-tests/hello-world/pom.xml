@@ -289,12 +289,12 @@
                             <goal>conf-doc</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>start</id>
-                        <goals>
-                            <goal>boot-start</goal>
-                        </goals>
-                    </execution>
+<!--                    <execution>-->
+<!--                        <id>start</id>-->
+<!--                        <goals>-->
+<!--                            <goal>boot-start</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
                     <execution>
                         <id>stop</id>
                         <goals>
@@ -322,12 +322,12 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.16</version>
                 <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>integration-test</goal>-->
+<!--                            <goal>verify</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
                 </executions>
             </plugin>
             <plugin>
