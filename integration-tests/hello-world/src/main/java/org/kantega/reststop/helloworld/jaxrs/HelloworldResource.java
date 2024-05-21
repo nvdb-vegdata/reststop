@@ -16,10 +16,11 @@
 
 package org.kantega.reststop.helloworld.jaxrs;
 
-import javax.annotation.security.RolesAllowed;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.ws.rs.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import jakarta.ws.rs.*;
+
+import jakarta.annotation.security.RolesAllowed;
 
 /**
  *

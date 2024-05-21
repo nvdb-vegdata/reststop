@@ -22,8 +22,8 @@ import org.kantega.reststop.servlet.api.ServletBuilder;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import javax.servlet.Filter;
-import javax.servlet.ServletException;
+import jakarta.servlet.Filter;
+import jakarta.servlet.ServletException;
 import java.util.Properties;
 
 /**

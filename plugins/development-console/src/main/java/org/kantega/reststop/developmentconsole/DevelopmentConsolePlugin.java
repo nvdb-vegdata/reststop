@@ -28,9 +28,9 @@ import org.kantega.reststop.core.PluginState;
 import org.kantega.reststop.servlet.api.FilterPhase;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
@@ -104,9 +104,9 @@ public class DevelopmentConsolePlugin {
             Map<PluginInfo, ClassLoader> infos = new IdentityHashMap<>();
 
             for (ClassLoader classLoader : pluginState.getClassLoaders()) {
-                if ( classLoader instanceof PluginClassLoader && !map.containsKey(classLoader)) {
+                if ( classLoader instanceof PluginClassLoader loader && !map.containsKey(classLoader)) {
                     map.put(classLoader, new ArrayList<>());
-                    infos.put(((PluginClassLoader) classLoader).getPluginInfo(), classLoader);
+                    infos.put(loader.getPluginInfo(), classLoader);
                 }
             }
             for (Object plugin : pluginState.getPlugins()) {

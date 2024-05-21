@@ -23,7 +23,6 @@ import org.kantega.reststop.classloaderutils.config.PluginConfigParams;
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.*;
-import javax.lang.model.type.ErrorType;
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
 import java.io.*;
@@ -35,7 +34,7 @@ import java.util.stream.Collectors;
  *
  */
 @SupportedAnnotationTypes("org.kantega.reststop.api.Plugin")
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class PluginClassProcessor extends AbstractProcessor {
 
     private Set<String> pluginClasses = new TreeSet<>();
@@ -82,9 +81,6 @@ public class PluginClassProcessor extends AbstractProcessor {
                         List<? extends VariableElement> parameters = constructor.getParameters();
 
                         for (VariableElement parameter : parameters) {
-                            if(parameter.asType() instanceof ErrorType) {
-                                continue;
-                            }
                             Name simpleName = parameter.getSimpleName();
                             parameterNames.add(simpleName.toString());
                             Config configAnnotation = parameter.getAnnotation(Config.class);

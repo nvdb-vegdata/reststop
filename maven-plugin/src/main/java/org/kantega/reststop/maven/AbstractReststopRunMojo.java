@@ -16,6 +16,7 @@
 
 package org.kantega.reststop.maven;
 
+import jakarta.servlet.ServletException;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.DependencyManagement;
@@ -32,23 +33,17 @@ import org.eclipse.aether.collection.CollectRequest;
 import org.eclipse.aether.graph.Exclusion;
 import org.eclipse.aether.repository.RemoteRepository;
 import org.eclipse.aether.resolution.DependencyResolutionException;
-import org.eclipse.jetty.maven.plugin.JettyWebAppContext;
-import org.eclipse.jetty.maven.plugin.ServerSupport;
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.server.handler.AbstractHandler;
-import org.eclipse.jetty.server.handler.HandlerCollection;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.websocket.jsr356.server.ServerContainer;
-import org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter;
+import org.eclipse.jetty.ee.WebAppClassLoading;
+import org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext;
+import org.eclipse.jetty.ee10.webapp.Configurations;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.server.*;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.eclipse.jetty.util.Callback;
 import org.kantega.reststop.classloaderutils.BuildSystem;
 import org.kantega.reststop.classloaderutils.PluginClassLoader;
 import org.kantega.reststop.classloaderutils.PluginInfo;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -109,8 +104,6 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
 
     private void startJetty(File war) throws MojoExecutionException {
         try {
-
-
             System.setProperty("reststopPluginDir", mavenProject.getBasedir().getAbsolutePath());
 
             int port = this.port;
@@ -118,16 +111,15 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
                 port = nextAvailablePort(port);
             }
 
-
             Server server = new Server(port);
-            ServerSupport.configureDefaultConfigurationClasses(server);
+            Configurations.setServerDefault(server);
 
             mavenProject.setContextValue("jettyServer", server);
 
-            JettyWebAppContext context = new JettyWebAppContext();
+            MavenWebAppContext context = new MavenWebAppContext();
 
             List<String> serverClasses = asList(
-                    "org.eclipse.aether.",
+                    "org.eclipse.aether.", // TODO: maybe replace with https://maven.apache.org/resolver/
                     "com.sun.codemodel.",
                     "com.jcraft.",
                     "org.apache.commons.",
@@ -139,7 +131,8 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
                     "org.eclipse.jgit.",
                     "org.twdata.",
                     "com.googlecode.");
-            serverClasses.forEach(context::addServerClass);
+
+            serverClasses.forEach(WebAppClassLoading::addProtectedClasses);
             getLog().info("Added system classes: " + serverClasses);
 
             context.setWar(war.getAbsolutePath());
@@ -156,10 +149,10 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
             jettyTmpDir.mkdirs();
             context.setTempDirectory(jettyTmpDir);
             boolean deleteTempDirectory= jettyTmpDir.exists() && war.lastModified() > jettyTmpDir.lastModified();
-            context.setPersistTempDirectory(!deleteTempDirectory);
+            context.setTempDirectoryPersistent(!deleteTempDirectory);
             context.setThrowUnavailableOnStartupException(true);
 
-            HandlerCollection handlers = new HandlerCollection(true);
+            ContextHandlerCollection handlers = new ContextHandlerCollection(true);
 
             handlers.addHandler(new ShutdownHandler(context, server, getLog()));
             server.setHandler(handlers);
@@ -177,7 +170,7 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
 
             handlers.addHandler(context);
 
-            configureWebSocket(context);
+            //configureWebSocket(context);
 
             context.start();
 
@@ -188,21 +181,22 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
         }
     }
 
-    public static ServerContainer configureWebSocket(ServletContextHandler context) throws ServletException
-    {
-
-       // Create Filter
-        WebSocketUpgradeFilter filter = WebSocketUpgradeFilter.configureContext(context);
-
-        // Create the Jetty ServerContainer implementation
-        ServerContainer jettyContainer = new RedeployableServerContainer(filter.getConfiguration(),context.getServer().getThreadPool());
-        context.addBean(jettyContainer, true);
-
-        // Store a reference to the ServerContainer per javax.websocket spec 1.0 final section 6.4 Programmatic Server Deployment
-        context.setAttribute(javax.websocket.server.ServerContainer.class.getName(),jettyContainer);
-
-        return jettyContainer;
-    }
+    // TODO: Care about web sockets?
+//    public static ServerWebSocketContainer configureWebSocket(ServletContextHandler context) throws ServletException
+//    {
+//
+//       // Create Filter
+//        WebSocketUpgradeFilter filter = WebSocketUpgradeFilter.configureContext(context);
+//
+//        // Create the Jetty ServerContainer implementation
+//        ServerContainer jettyContainer = new RedeployableServerContainer(filter.getConfiguration(),context.getServer().getThreadPool());
+//        context.addBean(jettyContainer, true);
+//
+//        // Store a reference to the ServerContainer per jakarta.websocket spec 1.0 final section 6.4 Programmatic Server Deployment
+//        context.setAttribute(jakarta.websocket.server.ServerContainer.class.getName(),jettyContainer);
+//
+//        return jettyContainer;
+//    }
 
 
 
@@ -219,21 +213,20 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
         }
     }
 
-    private class ShutdownHandler extends AbstractHandler {
-        private final JettyWebAppContext context;
+    private class ShutdownHandler extends Handler.Abstract {
+        private final WebAppContext context;
         private final Server server;
         private final Log log;
 
-        public ShutdownHandler(JettyWebAppContext context, Server server, Log log) {
+        public ShutdownHandler(WebAppContext context, Server server, Log log) {
             this.context = context;
             this.server = server;
             this.log = log;
         }
 
         @Override
-        public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-            if("/shutdown".equals(target) && ! (server.isStopping() || server.isStopped())) {
+        public boolean handle(Request request, Response response, Callback callback) throws Exception {
+            if("/shutdown".equals(request.getHttpURI().getDecodedPath()) && ! (server.isStopping() || server.isStopped())) {
                 try {
                     log.info("Shutting down Jetty server");
                     new Thread() {
@@ -243,15 +236,16 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
                                 context.stop();
                                 server.stop();
                             } catch (Throwable e) {
-                                org.eclipse.jetty.util.log.Log.getLogger(getClass()).ignore(e);
+                                log.error(e);
                             }
                         }
                     }.start();
                 } catch (Exception e) {
                     throw new ServletException(e);
                 }
-                baseRequest.setHandled(true);
+                return true;
             }
+            return false;
         }
     }
 

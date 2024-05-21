@@ -93,7 +93,7 @@ public class Resolver {
             DependencyResult dependencyResult = repoSystem.resolveDependencies(repoSession, dependencyRequest);
 
             if(!dependencyResult.getCollectExceptions().isEmpty()) {
-                throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().get(0));
+                throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().getFirst());
             }
 
             for(ArtifactResult result : dependencyResult.getArtifactResults()) {

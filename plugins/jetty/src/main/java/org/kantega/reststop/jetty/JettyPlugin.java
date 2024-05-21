@@ -17,8 +17,8 @@
 package org.kantega.reststop.jetty;
 
 import org.eclipse.jetty.server.*;
-import org.eclipse.jetty.servlet.FilterHolder;
-import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import org.kantega.reststop.api.Config;
 import org.kantega.reststop.api.Export;
 import org.kantega.reststop.api.Plugin;
@@ -27,9 +27,9 @@ import org.kantega.reststop.servlet.api.ServletBuilder;
 import org.kantega.reststop.servlet.api.ServletDeployer;
 import org.kantega.reststop.servlets.ReststopInitializer;
 
-import javax.annotation.PreDestroy;
-import javax.servlet.DispatcherType;
-import javax.servlet.ServletContext;
+import jakarta.annotation.PreDestroy;
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.ServletContext;
 import java.util.Collection;
 import java.util.EnumSet;
 

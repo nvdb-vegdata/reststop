@@ -21,8 +21,8 @@ import org.apache.velocity.app.VelocityEngine;
 import org.junit.runner.notification.Failure;
 import org.kantega.reststop.classloaderutils.PluginClassLoader;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 import java.io.*;

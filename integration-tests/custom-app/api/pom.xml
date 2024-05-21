@@ -29,7 +29,6 @@
         <dependency>
             <groupId>org.kantega.reststop</groupId>
             <artifactId>reststop-api</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

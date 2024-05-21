@@ -21,7 +21,7 @@ import org.kantega.reststop.classloaderutils.PluginClassLoader;
 import org.kantega.reststop.servlet.api.FilterPhase;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -103,7 +103,7 @@ public class WebjarsReststopPlugin {
             } else {
                 String number = value.substring(i);
                 try {
-                    int buildNumber = new Integer(number);
+                    int buildNumber = Integer.valueOf(number);
                     v.put(key, value.substring(0, i));
                 } catch (NumberFormatException e) {
                     v.put(key, value);

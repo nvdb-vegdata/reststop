@@ -42,8 +42,11 @@
         <dependency>
             <groupId>org.kantega.reststop</groupId>
             <artifactId>reststop-bootstrap</artifactId>
-            <version>${project.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
         </dependency>
 
     </dependencies>

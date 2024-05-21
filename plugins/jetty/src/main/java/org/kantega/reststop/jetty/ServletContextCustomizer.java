@@ -16,9 +16,9 @@
 
 package org.kantega.reststop.jetty;
 
-import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 
 /**
  *

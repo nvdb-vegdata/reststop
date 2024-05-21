@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -64,7 +65,7 @@ public class Deployer {
 
     private void sendDeployPost(PluginInfo resolved, File basedir) throws MojoExecutionException {
         try {
-            HttpURLConnection con = (HttpURLConnection) new URL("http://localhost:8080/dev/deploy").openConnection();
+            HttpURLConnection con = (HttpURLConnection) URI.create("http://localhost:8080/dev/deploy").toURL().openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");

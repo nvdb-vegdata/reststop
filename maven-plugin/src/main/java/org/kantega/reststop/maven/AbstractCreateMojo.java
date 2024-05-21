@@ -41,14 +41,14 @@ public abstract class AbstractCreateMojo extends AbstractMojo {
         try {
             dc = jPackage._class(className);
         } catch (JClassAlreadyExistsException e) {
-            throw new MojoExecutionException(String.format("Generating source for %s failed, Java Class seem to already exist", className),e);
+            throw new MojoExecutionException("Generating source for %s failed, Java Class seem to already exist".formatted(className),e);
         }
         dc.constructor(JMod.PUBLIC);
         dc.annotate(org.kantega.reststop.api.Plugin.class);
         try {
             cm.build(sourceDir);
         } catch (IOException e) {
-            throw new MojoExecutionException(String.format("Writing source file %s%s.java failed.", sourceDir, className),e);
+            throw new MojoExecutionException("Writing source file %s%s.java failed.".formatted(sourceDir, className),e);
         }
 
         File dest = sourceDir;
@@ -66,7 +66,7 @@ public abstract class AbstractCreateMojo extends AbstractMojo {
         try {
             dc = jPackage._class(JMod.PUBLIC, className, ClassType.INTERFACE);
         } catch (JClassAlreadyExistsException e) {
-            throw new MojoExecutionException(String.format("Generating source for %s failed, Java Class seem to already exist", className),e);
+            throw new MojoExecutionException("Generating source for %s failed, Java Class seem to already exist".formatted(className),e);
         }
         for(String method : methods){
             dc.method(JMod.NONE, String.class, method);
@@ -74,7 +74,7 @@ public abstract class AbstractCreateMojo extends AbstractMojo {
         try {
             cm.build(sourceDir);
         } catch (IOException e) {
-            throw new MojoExecutionException(String.format("Writing source file %s%s.java failed.", sourceDir, className),e);
+            throw new MojoExecutionException("Writing source file %s%s.java failed.".formatted(sourceDir, className),e);
         }
 
         File dest = sourceDir;

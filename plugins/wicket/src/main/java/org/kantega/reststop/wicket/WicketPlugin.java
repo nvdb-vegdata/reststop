@@ -22,9 +22,9 @@ import org.kantega.reststop.api.*;
 import org.kantega.reststop.servlet.api.FilterPhase;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.annotation.PreDestroy;
-import javax.servlet.Filter;
-import javax.servlet.ServletException;
+import jakarta.annotation.PreDestroy;
+import jakarta.servlet.Filter;
+import jakarta.servlet.ServletException;
 import java.util.Properties;
 
 /**
