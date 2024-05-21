@@ -27,7 +27,7 @@ import org.kantega.reststop.servlet.api.ServletBuilder;
 import org.kantega.reststop.servlet.api.ServletDeployer;
 import org.kantega.reststop.servlets.ReststopInitializer;
 
-import javax.annotation.PreDestroy;
+import jakarta.annotation.PreDestroy;
 import javax.servlet.DispatcherType;
 import javax.servlet.ServletContext;
 import java.util.Collection;

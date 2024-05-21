@@ -16,7 +16,7 @@
 
 package org.kantega.reststop.cxf;
 
-import javax.xml.ws.Endpoint;
+import jakarta.xml.ws.Endpoint;
 
 /**
  *
