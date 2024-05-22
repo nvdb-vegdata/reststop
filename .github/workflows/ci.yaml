@@ -5,6 +5,5 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - name: First test
-        run: |
-          echo: this is a test.
+      - name: Checkout repository
+      - uses: actions/checkout@v4
