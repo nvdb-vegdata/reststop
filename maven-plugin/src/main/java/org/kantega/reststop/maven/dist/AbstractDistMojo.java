@@ -511,7 +511,7 @@ public abstract class AbstractDistMojo extends AbstractReststopMojo {
                     throw new MojoFailureException("Failed resolving plugin dependencies", e);
                 }
                 if (!dependencyResult.getCollectExceptions().isEmpty()) {
-                    throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().get(0));
+                    throw new MojoFailureException("Failed resolving plugin dependencies", dependencyResult.getCollectExceptions().getFirst());
                 }
                 for (ArtifactResult result : dependencyResult.getArtifactResults()) {
                     Artifact artifact = result.getArtifact();

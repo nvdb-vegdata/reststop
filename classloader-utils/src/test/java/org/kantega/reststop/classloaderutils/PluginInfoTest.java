@@ -73,7 +73,7 @@ public class PluginInfoTest {
 
         List<PluginInfo> sorted = PluginInfo.resolveClassloaderOrder(infos);
 
-        assertThat(a, is(sorted.get(0)));
+        assertThat(a, is(sorted.getFirst()));
         assertThat(b, is(sorted.get(1)));
         assertThat(c, is(sorted.get(2)));
 
@@ -93,7 +93,7 @@ public class PluginInfoTest {
 
         List<PluginInfo> sorted = PluginInfo.resolveClassloaderOrder(infos);
 
-        assertThat(a, is(sorted.get(0)));
+        assertThat(a, is(sorted.getFirst()));
     }
 
     @Test(expected = CircularDependencyException.class)

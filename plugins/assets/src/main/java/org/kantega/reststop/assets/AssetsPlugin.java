@@ -21,7 +21,7 @@ import org.kantega.reststop.classloaderutils.PluginClassLoader;
 import org.kantega.reststop.servlet.api.FilterPhase;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 import java.util.Collection;
 
 /**

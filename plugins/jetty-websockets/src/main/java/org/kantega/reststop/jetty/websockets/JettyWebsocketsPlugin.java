@@ -27,9 +27,9 @@ import org.kantega.reststop.api.Export;
 import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.jetty.ServletContextCustomizer;
 
-import javax.servlet.ServletException;
-import javax.websocket.DeploymentException;
-import javax.websocket.server.ServerEndpointConfig;
+import jakarta.servlet.ServletException;
+import jakarta.websocket.DeploymentException;
+import jakarta.websocket.server.ServerEndpointConfig;
 import java.util.concurrent.Executor;
 
 /**
@@ -55,8 +55,8 @@ public class JettyWebsocketsPlugin implements ServletContextCustomizer {
             ServerContainer jettyContainer = new RedeployableServerContainer(filter.getConfiguration(), context.getServer().getThreadPool());
             context.addBean(jettyContainer, true);
 
-            // Store a reference to the ServerContainer per javax.websocket spec 1.0 final section 6.4 Programmatic Server Deployment
-            context.setAttribute(javax.websocket.server.ServerContainer.class.getName(), jettyContainer);
+            // Store a reference to the ServerContainer per jakarta.websocket spec 1.0 final section 6.4 Programmatic Server Deployment
+            context.setAttribute(jakarta.websocket.server.ServerContainer.class.getName(), jettyContainer);
 
 
         } else {

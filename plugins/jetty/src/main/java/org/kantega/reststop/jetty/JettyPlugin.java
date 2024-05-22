@@ -28,8 +28,8 @@ import org.kantega.reststop.servlet.api.ServletDeployer;
 import org.kantega.reststop.servlets.ReststopInitializer;
 
 import jakarta.annotation.PreDestroy;
-import javax.servlet.DispatcherType;
-import javax.servlet.ServletContext;
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.ServletContext;
 import java.util.Collection;
 import java.util.EnumSet;
 

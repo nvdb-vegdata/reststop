@@ -94,7 +94,7 @@ public class MavenPomUtils {
                 return node;
         }
 
-        throw new RuntimeException(String.format("Unsupported. Please add <%s> tag to your pom.xml.", name));
+        throw new RuntimeException("Unsupported. Please add <%s> tag to your pom.xml.".formatted(name));
 
     }
 
@@ -107,7 +107,7 @@ public class MavenPomUtils {
                 return versionNode;
         }
 
-        throw new RuntimeException(String.format("Unsupported. Please add <version> tag to your %s:%s pom.xml.", doc.getElementsByTagName("groupId"), doc.getElementsByTagName("artifactId")));
+        throw new RuntimeException("Unsupported. Please add <version> tag to your %s:%s pom.xml.".formatted(doc.getElementsByTagName("groupId"), doc.getElementsByTagName("artifactId")));
     }
 
 
@@ -154,6 +154,6 @@ public class MavenPomUtils {
             if (n.getNodeName().compareToIgnoreCase(nodeName) == 0)
                 return n;
         }
-        throw new RuntimeException(String.format("Could not find %s tag in your %s:%s pom.xml.", nodeName, doc.getElementsByTagName("groupId"), doc.getElementsByTagName("artifactId")));
+        throw new RuntimeException("Could not find %s tag in your %s:%s pom.xml.".formatted(nodeName, doc.getElementsByTagName("groupId"), doc.getElementsByTagName("artifactId")));
     }
 }

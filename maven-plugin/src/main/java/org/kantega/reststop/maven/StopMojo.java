@@ -28,6 +28,7 @@ import org.eclipse.jetty.util.log.Log;
 
 import java.io.IOException;
 import java.net.SocketException;
+import java.net.URI;
 import java.net.URL;
 
 /**
@@ -51,7 +52,7 @@ public class StopMojo extends AbstractMojo {
 
             try {
                 String url = "http://localhost:" + reststopPort + "/shutdown";
-                new URL(url).openStream();
+                URI.create(url).toURL().openStream();
             } catch (IOException e) {
                 Log.getLog().ignore(e);
             }

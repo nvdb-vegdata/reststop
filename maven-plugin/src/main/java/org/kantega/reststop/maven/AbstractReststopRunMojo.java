@@ -32,8 +32,9 @@ import org.eclipse.aether.collection.CollectRequest;
 import org.eclipse.aether.graph.Exclusion;
 import org.eclipse.aether.repository.RemoteRepository;
 import org.eclipse.aether.resolution.DependencyResolutionException;
-import org.eclipse.jetty.maven.plugin.JettyWebAppContext;
-import org.eclipse.jetty.maven.plugin.ServerSupport;
+import org.eclipse.jetty.ee.WebAppClassLoading;
+import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.ee10.webapp.;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
@@ -46,9 +47,9 @@ import org.kantega.reststop.classloaderutils.BuildSystem;
 import org.kantega.reststop.classloaderutils.PluginClassLoader;
 import org.kantega.reststop.classloaderutils.PluginInfo;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -124,10 +125,10 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
 
             mavenProject.setContextValue("jettyServer", server);
 
-            JettyWebAppContext context = new JettyWebAppContext();
+            WebAppContext context = new WebAppContext();
 
             List<String> serverClasses = asList(
-                    "org.eclipse.aether.",
+                    "org.eclipse.aether.", // TODO: maybe replace with https://maven.apache.org/resolver/
                     "com.sun.codemodel.",
                     "com.jcraft.",
                     "org.apache.commons.",
@@ -139,7 +140,8 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
                     "org.eclipse.jgit.",
                     "org.twdata.",
                     "com.googlecode.");
-            serverClasses.forEach(context::addServerClass);
+
+            serverClasses.forEach(WebAppClassLoading::addProtectedClasses);
             getLog().info("Added system classes: " + serverClasses);
 
             context.setWar(war.getAbsolutePath());
@@ -156,7 +158,7 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
             jettyTmpDir.mkdirs();
             context.setTempDirectory(jettyTmpDir);
             boolean deleteTempDirectory= jettyTmpDir.exists() && war.lastModified() > jettyTmpDir.lastModified();
-            context.setPersistTempDirectory(!deleteTempDirectory);
+            context.setTempDirectoryPersistent(!deleteTempDirectory);
             context.setThrowUnavailableOnStartupException(true);
 
             HandlerCollection handlers = new HandlerCollection(true);
@@ -198,8 +200,8 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
         ServerContainer jettyContainer = new RedeployableServerContainer(filter.getConfiguration(),context.getServer().getThreadPool());
         context.addBean(jettyContainer, true);
 
-        // Store a reference to the ServerContainer per javax.websocket spec 1.0 final section 6.4 Programmatic Server Deployment
-        context.setAttribute(javax.websocket.server.ServerContainer.class.getName(),jettyContainer);
+        // Store a reference to the ServerContainer per jakarta.websocket spec 1.0 final section 6.4 Programmatic Server Deployment
+        context.setAttribute(jakarta.websocket.server.ServerContainer.class.getName(),jettyContainer);
 
         return jettyContainer;
     }

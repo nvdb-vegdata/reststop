@@ -20,11 +20,11 @@ import org.kantega.reststop.api.Export;
 import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.servlet.Filter;
-import javax.servlet.ServletContext;
+import jakarta.servlet.Filter;
+import jakarta.servlet.ServletContext;
 
-import javax.websocket.DeploymentException;
-import javax.websocket.server.ServerContainer;
+import jakarta.websocket.DeploymentException;
+import jakarta.websocket.server.ServerContainer;
 
 /**
  *

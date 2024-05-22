@@ -27,9 +27,9 @@ import org.kantega.reststop.jaxrsapi.ApplicationDeployer;
 import org.kantega.reststop.servlet.api.FilterPhase;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;

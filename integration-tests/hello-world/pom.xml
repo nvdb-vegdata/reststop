@@ -29,9 +29,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.xml.ws</groupId>
-            <artifactId>jaxws-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+            <version>2.3.3</version>
         </dependency>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
@@ -68,6 +73,12 @@
             <version>${project.parent.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>2.3.7</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
@@ -77,13 +88,14 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
             <scope>provided</scope>
+            <version>1.3.5</version>
         </dependency>
 
         <dependency>
@@ -107,10 +119,15 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.websocket</groupId>
-            <artifactId>javax.websocket-api</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.9</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>jakarta.xml.ws</groupId>
@@ -265,14 +282,14 @@
                             <version>${project.parent.version}</version>
                         </dependency>
                         <dependency>
-                            <groupId>javax.servlet</groupId>
-                            <artifactId>javax.servlet-api</artifactId>
-                            <version>3.1.0</version>
+                            <groupId>jakarta.servlet</groupId>
+                            <artifactId>jakarta.servlet-api</artifactId>
+                            <version>6.0.0</version>
                         </dependency>
                         <dependency>
-                            <groupId>javax.websocket</groupId>
-                            <artifactId>javax.websocket-api</artifactId>
-                            <version>1.0</version>
+                            <groupId>jakarta.websocket</groupId>
+                            <artifactId>jakarta.websocket-api</artifactId>
+                            <version>2.1.1</version>
                         </dependency>
                     </containerDependencies>
                 </configuration>
@@ -289,12 +306,12 @@
                             <goal>conf-doc</goal>
                         </goals>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>start</id>-->
-<!--                        <goals>-->
-<!--                            <goal>boot-start</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
+                    <execution>
+                        <id>start</id>
+                        <goals>
+                            <goal>boot-start</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>stop</id>
                         <goals>
@@ -322,12 +339,12 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.16</version>
                 <executions>
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>integration-test</goal>-->
-<!--                            <goal>verify</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>

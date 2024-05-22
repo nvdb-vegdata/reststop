@@ -165,8 +165,7 @@ public class ReststopPluginLoader {
     private Class unwrapParameterType(Constructor constructor, Class paramClass, int i) {
         if (paramClass == Collection.class) {
             ParameterizedType parameterizedType = (ParameterizedType) constructor.getGenericParameterTypes()[i];
-            if (parameterizedType.getActualTypeArguments()[0] instanceof ParameterizedType) {
-                ParameterizedType nestedParameterizedType = (ParameterizedType) parameterizedType.getActualTypeArguments()[0];
+            if (parameterizedType.getActualTypeArguments()[0] instanceof ParameterizedType nestedParameterizedType) {
                 if (nestedParameterizedType.getRawType() == PluginExport.class) {
                     return (Class) nestedParameterizedType.getActualTypeArguments()[0];
                 }
@@ -324,8 +323,7 @@ public class ReststopPluginLoader {
 
         if(paramClass == Collection.class) {
             ParameterizedType parameterizedType = (ParameterizedType) constructor.getGenericParameterTypes()[i];
-            if(parameterizedType.getActualTypeArguments()[0] instanceof ParameterizedType) {
-                ParameterizedType nestedParameterizedType = (ParameterizedType) parameterizedType.getActualTypeArguments()[0];
+            if(parameterizedType.getActualTypeArguments()[0] instanceof ParameterizedType nestedParameterizedType) {
                 if (nestedParameterizedType.getRawType() == PluginExport.class) {
                     Class type = (Class) nestedParameterizedType.getActualTypeArguments()[0];
                     return pluginState.findExports(type);

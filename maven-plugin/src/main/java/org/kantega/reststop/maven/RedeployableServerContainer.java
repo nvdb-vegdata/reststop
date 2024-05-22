@@ -20,8 +20,8 @@ import org.eclipse.jetty.websocket.jsr356.server.ServerContainer;
 import org.eclipse.jetty.websocket.jsr356.server.ServerEndpointMetadata;
 import org.eclipse.jetty.websocket.server.NativeWebSocketConfiguration;
 
-import javax.websocket.DeploymentException;
-import javax.websocket.server.ServerEndpointConfig;
+import jakarta.websocket.DeploymentException;
+import jakarta.websocket.server.ServerEndpointConfig;
 import java.util.concurrent.Executor;
 
 /**

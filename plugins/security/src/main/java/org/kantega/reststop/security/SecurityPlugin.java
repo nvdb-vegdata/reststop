@@ -23,7 +23,7 @@ import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 import org.kantega.reststop.jaxrsapi.ApplicationBuilder;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 import javax.ws.rs.core.Application;
 
 /**

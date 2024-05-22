@@ -16,14 +16,14 @@
 
 package org.kantega.reststop.helloworld;
 
+import jakarta.xml.bind.DatatypeConverter;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -39,7 +39,7 @@ public class HelloworldIT {
 
 
         String reststopPort = readPort();
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:" + reststopPort + "/helloworld/en?yo=hello").openConnection();
+        HttpURLConnection connection = (HttpURLConnection) URI.create("http://localhost:" + reststopPort + "/helloworld/en?yo=hello").toURL().openConnection();
         connection.setRequestProperty("Authorization", "Basic " + DatatypeConverter.printBase64Binary("joe:joe".getBytes("utf-8")));
         connection.setRequestProperty("Accept", "application/json");
         String message = IOUtils.toString(connection.getInputStream());

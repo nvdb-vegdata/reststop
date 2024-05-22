@@ -135,7 +135,7 @@ public class PluginState {
 
     public <T> T getService(Class<T> type) {
         List<Object> objects = services.get(type);
-        return objects == null || objects.isEmpty() ? null : (T) objects.get(0);
+        return objects == null || objects.isEmpty() ? null : (T) objects.getFirst();
     }
 
     public List<LoadedPluginClass> getPluginsLoadedBy(Collection<PluginClassLoader> classLoaders) {

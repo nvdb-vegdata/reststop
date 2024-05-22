@@ -16,6 +16,10 @@
 
 package org.kantega.reststop.helloworld;
 
+import jakarta.xml.ws.BindingProvider;
+import jakarta.xml.ws.Dispatch;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebServiceException;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -25,10 +29,6 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.stream.StreamSource;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.Dispatch;
-import javax.xml.ws.Service;
-import javax.xml.ws.WebServiceException;
 import java.util.Map;
 
 import static org.hamcrest.core.Is.is;
@@ -71,8 +71,7 @@ public class HelloServiceIT {
         Dispatch<Source> helloPort = helloService.createDispatch(new QName("http://reststop.kantega.org/ws/hello-1.0", "HelloPort"),
                 Source.class, Service.Mode.PAYLOAD);
 
-        BindingProvider prov = (BindingProvider)helloPort;
-        Map<String,Object> rc = prov.getRequestContext();
+        Map<String,Object> rc = helloPort.getRequestContext();
         rc.put(BindingProvider.USERNAME_PROPERTY, "joe");
         rc.put(BindingProvider.PASSWORD_PROPERTY, "joe");
         rc.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:" + Utils.readPort() + "/ws/hello-1.0");

@@ -212,11 +212,11 @@ public class RpmBuilder extends AbstractDistMojo {
 
         appuser = applyDefaults(appuser);
 
-        pw.println(String.format(
-                "/usr/bin/getent group %s > /dev/null || /usr/sbin/groupadd -r %s",
+        pw.println(
+                "/usr/bin/getent group %s > /dev/null || /usr/sbin/groupadd -r %s".formatted(
                 appuser.getGroupname(), appuser.getGroupname()));
-        pw.println(String.format(
-                "/usr/bin/getent passwd %s > /dev/null || /usr/sbin/useradd -r -g %s -d %s -s /bin/bash %s",
+        pw.println(
+                "/usr/bin/getent passwd %s > /dev/null || /usr/sbin/useradd -r -g %s -d %s -s /bin/bash %s".formatted(
                 appuser.getUsername(), appuser.getUsername(), appuser.getHomeDir(), appuser.getUsername()
         ));
 

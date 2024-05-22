@@ -25,8 +25,8 @@ import org.kantega.reststop.jaxwsapi.EndpointDeployer;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
 import jakarta.annotation.PreDestroy;
-import javax.servlet.Filter;
-import javax.servlet.ServletException;
+import jakarta.servlet.Filter;
+import jakarta.servlet.ServletException;
 import javax.wsdl.Definition;
 import jakarta.xml.ws.Endpoint;
 import java.util.ArrayList;

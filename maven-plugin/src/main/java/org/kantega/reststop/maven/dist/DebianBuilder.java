@@ -94,9 +94,9 @@ public class DebianBuilder extends AbstractDistMojo {
             pw.println("#!/bin/sh");
             pw.println("/usr/sbin/update-rc.d " + name + " defaults 90 10");
             pw.println("adduser --system --no-create-home --group " + name);
-            pw.print(String.format("if id -u %s > /dev/null 2>&1; then\n" +
+            pw.print(("if id -u %s > /dev/null 2>&1; then\n" +
                     "    chown %s:%s %s\n" +
-                    "fi", name, name, name, installDir + "/" + name));
+                    "fi").formatted(name, name, name, installDir + "/" + name));
         } catch (FileNotFoundException e) {
             throw new MojoExecutionException(e.getMessage(), e);
         }

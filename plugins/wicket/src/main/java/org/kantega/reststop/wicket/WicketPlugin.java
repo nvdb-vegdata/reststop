@@ -23,8 +23,8 @@ import org.kantega.reststop.servlet.api.FilterPhase;
 import org.kantega.reststop.servlet.api.ServletBuilder;
 
 import jakarta.annotation.PreDestroy;
-import javax.servlet.Filter;
-import javax.servlet.ServletException;
+import jakarta.servlet.Filter;
+import jakarta.servlet.ServletException;
 import java.util.Properties;
 
 /**
