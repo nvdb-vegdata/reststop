@@ -22,8 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 /**
  *
@@ -73,9 +72,9 @@ public class PluginInfoTest {
 
         List<PluginInfo> sorted = PluginInfo.resolveClassloaderOrder(infos);
 
-        assertThat(a, is(sorted.getFirst()));
-        assertThat(b, is(sorted.get(1)));
-        assertThat(c, is(sorted.get(2)));
+        assertEquals(a, sorted.getFirst());
+        assertEquals(b, sorted.get(1));
+        assertEquals(c, sorted.get(2));
 
     }
 
@@ -93,7 +92,7 @@ public class PluginInfoTest {
 
         List<PluginInfo> sorted = PluginInfo.resolveClassloaderOrder(infos);
 
-        assertThat(a, is(sorted.getFirst()));
+        assertEquals(a, sorted.getFirst());
     }
 
     @Test(expected = CircularDependencyException.class)

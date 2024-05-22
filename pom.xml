@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kantega.reststop</groupId>
     <artifactId>reststop-parent</artifactId>
-    <version>4.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>Reststop</name>
@@ -42,6 +42,7 @@
 
 
     <properties>
+        <revision>4.0.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>3.1.6</jersey.version>
         <jetty.version>12.0.9</jetty.version><!-- Also defined in template-plugin-webapp-pom.xml -->
@@ -74,14 +75,10 @@
 
     <distributionManagement>
         <repository>
-            <id>oss.sonatype.org-kantega</id>
-            <name>Kantega's staging repository at Sonatype</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/nvdb-vegdata/reststop</url>
         </repository>
-        <snapshotRepository>
-            <id>kantega-snapshots</id>
-            <url>http://opensource.kantega.no/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
     </distributionManagement>
     <dependencies>
         <dependency>
