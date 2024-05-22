@@ -25,7 +25,7 @@
     <name>Reststop</name>
     <description>Modular, fast-feedback development for Java web application</description>
 
-    <url>https://github.com/kantega/reststop/</url>
+    <url>https://github.com/nvdb-vegdata/reststop/</url>
 
 
     <developers>
@@ -47,13 +47,14 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/kantega/reststop</url>
-        <connection>scm:git:git@github.com:kantega/reststop.git</connection>
+        <url>https://github.com/nvdb-vegdata/reststop</url>
+        <connection>scm:git:git@github.com:nvdb-vegdata/reststop.git</connection>
     <tag>reststop-parent-3.4</tag>
   </scm>
 
 
     <properties>
+        <reststop.version>3.12-SNAPSHOT</reststop.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>2.25</jersey.version>
         <jetty.version>9.3.25.v20180904</jetty.version><!-- Also defined in template-plugin-webapp-pom.xml -->
@@ -83,14 +84,10 @@
 
     <distributionManagement>
         <repository>
-            <id>oss.sonatype.org-kantega</id>
-            <name>Kantega's staging repository at Sonatype</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/nvdb-vegdata/reststop</url>
         </repository>
-        <snapshotRepository>
-            <id>kantega-snapshots</id>
-            <url>http://opensource.kantega.no/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
     </distributionManagement>
     <dependencies>
         <dependency>
@@ -212,6 +209,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>reststop-${reststop.version}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
