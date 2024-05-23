@@ -18,7 +18,7 @@ package org.kantega.reststop.apt;
 
 import org.kantega.reststop.api.Plugin;
 
-import jakarta.annotation.processing.*;
+import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;

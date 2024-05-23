@@ -20,10 +20,9 @@ import org.kantega.reststop.api.Config;
 import org.kantega.reststop.classloaderutils.config.PluginConfigParam;
 import org.kantega.reststop.classloaderutils.config.PluginConfigParams;
 
-import jakarta.annotation.processing.*;
+import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.*;
-import javax.lang.model.type.ErrorType;
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
 import java.io.*;
