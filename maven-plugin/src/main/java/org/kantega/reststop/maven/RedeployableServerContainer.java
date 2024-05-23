@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-//package org.kantega.reststop.maven;
+package org.kantega.reststop.maven;
 //
 //import org.eclipse.jetty.websocket.jsr356.server.ServerContainer;
 //import org.eclipse.jetty.websocket.jsr356.server.ServerEndpointMetadata;

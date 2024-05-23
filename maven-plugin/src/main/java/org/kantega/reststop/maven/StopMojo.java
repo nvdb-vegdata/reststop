@@ -24,12 +24,9 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.util.log.Log;
 
 import java.io.IOException;
-import java.net.SocketException;
 import java.net.URI;
-import java.net.URL;
 
 /**
  *
@@ -54,7 +51,7 @@ public class StopMojo extends AbstractMojo {
                 String url = "http://localhost:" + reststopPort + "/shutdown";
                 URI.create(url).toURL().openStream();
             } catch (IOException e) {
-                Log.getLog().ignore(e);
+                getLog().error(e);
             }
 
 
