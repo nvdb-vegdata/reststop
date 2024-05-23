@@ -21,12 +21,20 @@ import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 
+/**
+ *
+ */
 @WebService(serviceName = "HelloService",
         name = "Hello",
         targetNamespace = "http://reststop.kantega.org/ws/hello-1.0",
         wsdlLocation = "META-INF/wsdl/HelloService.wsdl")
-public interface HelloService {
+
+public class HelloService {
+
+
     @WebMethod(operationName = "greet")
     @WebResult(name = "messageResult")
-    String sayHello(@WebParam(name = "receiver") String receiver, @WebParam(name = "lang") String lang);
+    public String sayHello(@WebParam(name = "receiver") String receiver, @WebParam(name = "lang") String lang) {
+        return ("se".equals(lang) ? "Hej" : "Hello")  +", " + receiver +"!";
+    }
 }
