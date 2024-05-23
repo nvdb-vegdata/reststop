@@ -16,17 +16,17 @@
 
 package org.kantega.reststop.helloworld.ws;
 
-import jakarta.websocket.OnMessage;
-import jakarta.websocket.server.ServerEndpoint;
-
-/**
- *
- */
-@ServerEndpoint(value = "/toupper", configurator = CustomWsConfiguator.class)
-public class ToUpperEndpoint {
-
-    @OnMessage
-    public String onMessage(String message) {
-        return message.toUpperCase();
-    }
-}
+//import jakarta.websocket.OnMessage;
+//import jakarta.websocket.server.ServerEndpoint;
+//
+///**
+// *
+// */
+//@ServerEndpoint(value = "/toupper", configurator = CustomWsConfiguator.class)
+//public class ToUpperEndpoint {
+//
+//    @OnMessage
+//    public String onMessage(String message) {
+//        return message.toUpperCase();
+//    }
+//}
