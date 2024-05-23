@@ -21,7 +21,7 @@ import com.sun.istack.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.ws.rs.*;
 
-import javax.annotation.security.RolesAllowed; // TODO: Fix?
+import jakarta.annotation.security.RolesAllowed;
 
 /**
  *

@@ -17,17 +17,15 @@
 package org.kantega.reststop.cxfmetrics;
 
 import com.codahale.metrics.MetricRegistry;
+import jakarta.xml.ws.Endpoint;
 import org.apache.cxf.interceptor.Fault;
-import org.apache.cxf.jaxws22.EndpointImpl;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.AbstractPhaseInterceptor;
-import org.apache.cxf.phase.Phase;
 import org.kantega.reststop.api.Export;
 import org.kantega.reststop.api.Plugin;
 import org.kantega.reststop.cxf.EndpointCustomizer;
 
 import javax.xml.namespace.QName;
-import jakarta.xml.ws.Endpoint;
 import java.util.concurrent.TimeUnit;
 
 import static com.codahale.metrics.MetricRegistry.name;
