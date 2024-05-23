@@ -14,47 +14,47 @@
  * limitations under the License.
  */
 
-package org.kantega.reststop.maven;
-
-import org.eclipse.jetty.websocket.jsr356.server.ServerContainer;
-import org.eclipse.jetty.websocket.jsr356.server.ServerEndpointMetadata;
-import org.eclipse.jetty.websocket.server.NativeWebSocketConfiguration;
-
-import jakarta.websocket.DeploymentException;
-import jakarta.websocket.server.ServerEndpointConfig;
-import java.util.concurrent.Executor;
-
-/**
- *
- */
-public class RedeployableServerContainer extends ServerContainer {
-    private final NativeWebSocketConfiguration configuration;
-
-    public RedeployableServerContainer(NativeWebSocketConfiguration configuration, Executor executor) {
-        super(configuration, executor);
-        this.configuration = configuration;
-    }
-
-    @Override
-    public void addEndpoint(Class<?> endpointClass) throws DeploymentException {
-        if (isStarted() || isStarting()) {
-            ServerEndpointMetadata metadata = getServerEndpointMetadata(endpointClass, null);
-            configuration.removeMapping(metadata.getPath());
-            super.addEndpoint(endpointClass);
-        } else {
-            super.addEndpoint(endpointClass);
-        }
-
-    }
-
-    @Override
-    public void addEndpoint(ServerEndpointConfig config) throws DeploymentException {
-        if (isStarted() || isStarting()) {
-            configuration.removeMapping(config.getPath());
-            super.addEndpoint(config);
-        } else {
-            super.addEndpoint(config);
-        }
-    }
-}
-
+//package org.kantega.reststop.maven;
+//
+//import org.eclipse.jetty.websocket.jsr356.server.ServerContainer;
+//import org.eclipse.jetty.websocket.jsr356.server.ServerEndpointMetadata;
+//import org.eclipse.jetty.websocket.server.NativeWebSocketConfiguration;
+//
+//import jakarta.websocket.DeploymentException;
+//import jakarta.websocket.server.ServerEndpointConfig;
+//import java.util.concurrent.Executor;
+//
+///**
+// *
+// */
+//public class RedeployableServerContainer extends ServerContainer {
+//    private final NativeWebSocketConfiguration configuration;
+//
+//    public RedeployableServerContainer(NativeWebSocketConfiguration configuration, Executor executor) {
+//        super(configuration, executor);
+//        this.configuration = configuration;
+//    }
+//
+//    @Override
+//    public void addEndpoint(Class<?> endpointClass) throws DeploymentException {
+//        if (isStarted() || isStarting()) {
+//            ServerEndpointMetadata metadata = getServerEndpointMetadata(endpointClass, null);
+//            configuration.removeMapping(metadata.getPath());
+//            super.addEndpoint(endpointClass);
+//        } else {
+//            super.addEndpoint(endpointClass);
+//        }
+//
+//    }
+//
+//    @Override
+//    public void addEndpoint(ServerEndpointConfig config) throws DeploymentException {
+//        if (isStarted() || isStarting()) {
+//            configuration.removeMapping(config.getPath());
+//            super.addEndpoint(config);
+//        } else {
+//            super.addEndpoint(config);
+//        }
+//    }
+//}
+//

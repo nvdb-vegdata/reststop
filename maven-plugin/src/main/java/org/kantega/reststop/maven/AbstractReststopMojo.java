@@ -37,7 +37,6 @@ import org.eclipse.aether.resolution.DependencyResult;
 import org.eclipse.aether.util.artifact.JavaScopes;
 import org.eclipse.aether.util.filter.DependencyFilterUtils;
 import org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
 import org.eclipse.jetty.server.Server;
 import org.kantega.reststop.classloaderutils.CircularDependencyException;
 import org.kantega.reststop.classloaderutils.PluginInfo;
@@ -97,7 +96,7 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
     protected List<org.apache.maven.model.Dependency> containerDependencies;
 
 
-    protected void customizeContext(WebAppContext context) {
+    protected void customizeContext(MavenWebAppContext context) {
 
     }
 

@@ -147,9 +147,6 @@
                     <!-- see http://jira.codehaus.org/browse/MNG-5346 -->
                     <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
                     <goalPrefix>reststop</goalPrefix>
-                    <webAppProvider>
-                        <class>org.eclipse.jetty.ee10.maven.plugin.JettyWebAppProvider</class>
-                    </webAppProvider>
                 </configuration>
                 <executions>
                     <execution>

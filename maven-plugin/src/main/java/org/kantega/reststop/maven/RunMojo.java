@@ -20,8 +20,9 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.*;
 import org.apache.maven.shared.invoker.Invoker;
-import org.eclipse.jetty.maven.plugin.JettyWebAppContext;
+import org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.util.ClassMatcher;
 
 import java.awt.*;
 import java.io.File;
@@ -59,13 +60,13 @@ public class RunMojo extends AbstractReststopRunMojo {
     Set<org.apache.maven.artifact.Artifact> projectArtifacts;
 
     @Override
-    protected void customizeContext(JettyWebAppContext context) {
+    protected void customizeContext(MavenWebAppContext context) {
         if("war".equals(mavenProject.getPackaging())) {
             context.setClasses(classesDirectory);
             context.setWebInfLib(getDependencyFiles());
         }
 
-        context.addSystemClass("org.kantega.reststop.classloaderutils.");
+        context.addProtectedClassMatcher(new ClassMatcher("org.kantega.reststop.classloaderutils."));
         registerBuildSystem();
     }
 
