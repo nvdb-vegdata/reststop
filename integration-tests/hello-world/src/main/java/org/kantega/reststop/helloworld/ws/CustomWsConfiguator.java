@@ -16,16 +16,16 @@
 
 package org.kantega.reststop.helloworld.ws;
 
-import jakarta.websocket.HandshakeResponse;
-import jakarta.websocket.server.HandshakeRequest;
-import jakarta.websocket.server.ServerEndpointConfig;
-
-/**
- *
- */
-public class CustomWsConfiguator extends ServerEndpointConfig.Configurator {
-
-    public void modifyHandshake(ServerEndpointConfig sec, HandshakeRequest request, HandshakeResponse response) {
-        // nada
-    }
-}
+//import jakarta.websocket.HandshakeResponse;
+//import jakarta.websocket.server.HandshakeRequest;
+//import jakarta.websocket.server.ServerEndpointConfig;
+//
+///**
+// *
+// */
+//public class CustomWsConfiguator extends ServerEndpointConfig.Configurator {
+//
+//    public void modifyHandshake(ServerEndpointConfig sec, HandshakeRequest request, HandshakeResponse response) {
+//        // nada
+//    }
+//}
