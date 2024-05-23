@@ -19,10 +19,10 @@ package org.kantega.reststop.jerseymetrics;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 
-import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.container.ContainerResponseContext;
-import javax.ws.rs.container.ContainerResponseFilter;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.container.ContainerResponseContext;
+import jakarta.ws.rs.container.ContainerResponseFilter;
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 
 import static com.codahale.metrics.MetricRegistry.name;

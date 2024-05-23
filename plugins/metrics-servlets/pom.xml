@@ -28,7 +28,7 @@
     <artifactId>reststop-metrics-servlets-plugin</artifactId>
 
     <properties>
-        <metrics.version>4.0.2</metrics.version>
+        <metrics.version>4.2.25</metrics.version>
     </properties>
     <dependencies>
 
@@ -40,14 +40,8 @@
         </dependency>
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
-            <artifactId>metrics-servlets</artifactId>
+            <artifactId>metrics-jakarta-servlet</artifactId>
             <version>${metrics.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
