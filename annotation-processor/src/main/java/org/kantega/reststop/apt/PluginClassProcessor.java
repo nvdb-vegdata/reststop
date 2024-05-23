@@ -82,9 +82,6 @@ public class PluginClassProcessor extends AbstractProcessor {
                         List<? extends VariableElement> parameters = constructor.getParameters();
 
                         for (VariableElement parameter : parameters) {
-                            if(parameter.asType() instanceof ErrorType) {
-                                continue;
-                            }
                             Name simpleName = parameter.getSimpleName();
                             parameterNames.add(simpleName.toString());
                             Config configAnnotation = parameter.getAnnotation(Config.class);
