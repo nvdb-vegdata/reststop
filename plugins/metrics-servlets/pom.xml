@@ -40,7 +40,7 @@
         </dependency>
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
-            <artifactId>metrics-jakarta-servlet</artifactId>
+            <artifactId>metrics-jakarta-servlets</artifactId>
             <version>${metrics.version}</version>
         </dependency>
         <dependency>
