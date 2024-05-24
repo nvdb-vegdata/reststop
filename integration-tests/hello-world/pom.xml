@@ -195,7 +195,13 @@
                                     <groupId>org.glassfish.jersey.ext</groupId>
                                     <artifactId>jersey-bean-validation</artifactId>
                                     <version>${jersey.version}</version>
-                                </dependency>
+                                    <exclusions>
+                                        <exclusion>
+                                            <groupId>jakarta.ws.rs</groupId>
+                                            <artifactId>jakarta.ws.rs-api</artifactId>
+                                        </exclusion>
+                                    </exclusions>
+                                </dependency>  
                             </dependencies>
                         </plugin>
 
