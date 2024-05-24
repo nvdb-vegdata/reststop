@@ -14,13 +14,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
-      - name: Set up release tag
-        if: github.event_name == 'release'
-        run: echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
       - name: Build Maven project
         run: |
-          if [ -n "$RELEASE_TAG" ]; then
-            mvn --batch-mode package -Dreststop.version="$RELEASE_TAG"
+          if [ -n "${{ github.event.release.tag_name }}" ]; then
+            mvn --batch-mode package -Dreststop.version="${{ github.event.release.tag_name }}"
           else
             mvn --batch-mode package
           fi
