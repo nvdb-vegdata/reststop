@@ -31,7 +31,7 @@ jobs:
             mvn --batch-mode package -Drevision="${{ env.RELEASE_TAG }}"
           else
             echo "latest tag:"
-            echo "git tag --sort=-creatordate | head -n1"
+            echo "$(git tag --sort=-creatordate | head -n1)"
             mvn --batch-mode package
           fi
       - name: Publish package
