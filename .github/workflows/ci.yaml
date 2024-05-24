@@ -1,8 +1,13 @@
 name: CI
 on:
+  push:
+    branches:
+      - master
   release:
-    types: [ published ]
+    types:
+      - published
   workflow_dispatch:
+  pull_request:
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -14,9 +19,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
-      - name: Set up release tag
+      - name: Get tag from new release
         if: github.event_name == 'release'
         run: echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+      - name: Get latest release tag
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: echo "RELEASE_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)-SNAPSHOT" >> $GITHUB_ENV
       - name: Build Maven project
         run: |
           if [ -n "${{ env.RELEASE_TAG }}" ]; then
@@ -25,7 +33,7 @@ jobs:
             mvn --batch-mode package
           fi
       - name: Publish package
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' || (github.event_name == 'push' && github.ref == 'refs/heads/master')
         run: mvn --batch-mode deploy -Drevision="${{ env.RELEASE_TAG }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
