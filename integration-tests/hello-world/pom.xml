@@ -117,6 +117,14 @@
             <version>4.0.2</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- TODO: Is it correct to place it here? -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -272,6 +280,11 @@
                             <artifactId>jakarta.websocket-api</artifactId>
                             <version>2.1.1</version>
                         </dependency>
+                        <dependency>
+                            <groupId>jakarta.xml.ws</groupId>
+                            <artifactId>jakarta.xml.ws-api</artifactId>
+                            <version>4.0.2</version>
+                        </dependency>
                     </containerDependencies>
                 </configuration>
                 <executions>
@@ -350,7 +363,7 @@
 <!--                        <groupId>org.apache.maven.plugins</groupId>-->
 <!--                        <artifactId>maven-failsafe-plugin</artifactId>-->
 <!--                        <configuration>-->
-<!--                            <argLine>&#45;&#45;add-modules=java.xml.bind,java.xml.ws</argLine>-->
+<!--                            <argLine>&#45;&#45;add-modules=jakarta.xml.bind,jakarta.xml.ws</argLine>-->
 <!--                        </configuration>-->
 <!--                    </plugin>-->
 <!--                </plugins>-->
