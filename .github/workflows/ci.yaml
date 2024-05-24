@@ -26,6 +26,6 @@ jobs:
           fi
       - name: Publish package
         if: github.event_name == 'release'
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode deploy -Dreststop.version="${{ env.RELEASE_TAG }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
