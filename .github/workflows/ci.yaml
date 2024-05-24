@@ -16,8 +16,8 @@ jobs:
           java-version: '8'
       - name: Build Maven project
         run: |
-          if [ -n ${{ github.event.release.tag_name }} ]; then
-            mvn --batch-mode package -Dreststop.version=${{ github.event.release.tag_name }}
+          if [ -n "${{ github.event.release.tag_name }}" ]; then
+            mvn --batch-mode package -Dreststop.version="${{ github.event.release.tag_name }}"
           else
             mvn --batch-mode package
           fi
