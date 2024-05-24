@@ -26,6 +26,10 @@
 
     <artifactId>reststop-core</artifactId>
 
+    <build>
+        <finalName>reststop-core-${reststop.version}</finalName>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
