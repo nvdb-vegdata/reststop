@@ -29,12 +29,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>3.0.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>reststop-api</artifactId>
             <scope>provided</scope>
@@ -75,16 +69,33 @@
             <version>${project.parent.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>1.4</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
             <artifactId>reststop-annotation-processor</artifactId>
@@ -109,12 +120,7 @@
             <artifactId>jakarta.xml.ws-api</artifactId>
             <version>4.0.2</version>
         </dependency>
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <version>3.0.2</version>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
