@@ -20,12 +20,12 @@ jobs:
       - name: Build Maven project
         run: |
           if [ -n "${{ env.RELEASE_TAG }}" ]; then
-            mvn --batch-mode package -Dreststop.version="${{ env.RELEASE_TAG }}"
+            mvn --batch-mode package -Drevision="${{ env.RELEASE_TAG }}"
           else
             mvn --batch-mode package
           fi
       - name: Publish package
         if: github.event_name == 'release'
-        run: mvn --batch-mode deploy -Dreststop.version="${{ env.RELEASE_TAG }}"
+        run: mvn --batch-mode deploy -Drevision="${{ env.RELEASE_TAG }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

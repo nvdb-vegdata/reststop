@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.kantega.reststop</groupId>
     <artifactId>reststop-parent</artifactId>
-    <version>3.12-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>Reststop</name>
@@ -54,7 +54,7 @@
 
 
     <properties>
-        <reststop.version>3.12-SNAPSHOT</reststop.version>
+        <revision>3.12-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>2.25</jersey.version>
         <jetty.version>9.3.25.v20180904</jetty.version><!-- Also defined in template-plugin-webapp-pom.xml -->
@@ -209,7 +209,6 @@
     </dependencyManagement>
 
     <build>
-        <finalName>reststop-${reststop.version}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
