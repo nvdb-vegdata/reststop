@@ -15,17 +15,14 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
       - name: Set up release tag
-        #if: github.event_name == 'release'
-        run: echo "RELEASE_TAG=TESTVALUE" >> $GITHUB_ENV
-        #run: echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+        if: github.event_name == 'release'
+        run: echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
       - name: Build Maven project
         run: |
           if [ -n "${{ env.RELEASE_TAG }}" ]; then
-            echo "env variable exists"
-            echo "${{ env.RELEASE_TAG }}"
-            #mvn --batch-mode package -Dreststop.version="${{ env.RELEASE_TAG }}"
+            mvn --batch-mode package -Dreststop.version="${{ env.RELEASE_TAG }}"
           else
-            echo "no env variable"
+            mvn --batch-mode package
           fi
       - name: Publish package
         if: github.event_name == 'release'
