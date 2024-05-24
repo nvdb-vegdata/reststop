@@ -30,7 +30,7 @@ import java.util.Set;
  *
  */
 @SupportedAnnotationTypes("org.kantega.reststop.api.Export")
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class ExportFieldProcessor extends AbstractProcessor {
 
 

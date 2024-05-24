@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  *
  */
 @SupportedAnnotationTypes("org.kantega.reststop.api.Plugin")
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class PluginClassProcessor extends AbstractProcessor {
 
     private Set<String> pluginClasses = new TreeSet<>();
