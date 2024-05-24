@@ -30,6 +30,8 @@ jobs:
           if [ -n "${{ env.RELEASE_TAG }}" ]; then
             mvn --batch-mode package -Drevision="${{ env.RELEASE_TAG }}"
           else
+            echo "latest tag:"
+            echo "tag=${GITHUB_REF#refs/*/}"
             mvn --batch-mode package
           fi
       - name: Publish package
