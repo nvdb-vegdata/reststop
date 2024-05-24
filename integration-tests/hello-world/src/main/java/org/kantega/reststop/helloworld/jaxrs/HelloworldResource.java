@@ -16,8 +16,7 @@
 
 package org.kantega.reststop.helloworld.jaxrs;
 
-
-import com.sun.istack.NotNull;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.ws.rs.*;
 
