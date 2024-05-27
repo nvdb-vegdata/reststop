@@ -18,9 +18,9 @@ package no.vegvesen.nvdb.reststop.statistics;
 
 import no.vegvesen.nvdb.reststop.api.Export;
 import no.vegvesen.nvdb.reststop.api.Plugin;
-import org.kantega.reststop.api.*;
+import no.vegvesen.nvdb.reststop.api.*;
 import no.vegvesen.nvdb.reststop.servlet.api.FilterPhase;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 
 import jakarta.servlet.Filter;
 

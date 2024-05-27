@@ -24,8 +24,8 @@ import no.vegvesen.nvdb.reststop.api.Config;
 import no.vegvesen.nvdb.reststop.api.Export;
 import no.vegvesen.nvdb.reststop.api.Plugin;
 import no.vegvesen.nvdb.reststop.api.PluginExport;
-import org.kantega.reststop.servlet.api.ServletBuilder;
-import org.kantega.reststop.servlet.api.ServletDeployer;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletDeployer;
 
 import jakarta.annotation.PreDestroy;
 import jakarta.servlet.DispatcherType;

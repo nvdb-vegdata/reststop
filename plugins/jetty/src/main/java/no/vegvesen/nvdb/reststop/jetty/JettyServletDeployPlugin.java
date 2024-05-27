@@ -18,7 +18,7 @@ package no.vegvesen.nvdb.reststop.jetty;
 
 import no.vegvesen.nvdb.reststop.api.Plugin;
 import no.vegvesen.nvdb.reststop.api.PluginExport;
-import org.kantega.reststop.servlet.api.ServletDeployer;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletDeployer;
 
 import jakarta.servlet.Filter;
 import java.util.Collection;

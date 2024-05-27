@@ -25,6 +25,6 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="org.kantega.reststop.helloworld.springmvc"/>
+    <context:component-scan base-package="no.vegvesen.nvdb.reststop.helloworld.springmvc"/>
 
 </beans>

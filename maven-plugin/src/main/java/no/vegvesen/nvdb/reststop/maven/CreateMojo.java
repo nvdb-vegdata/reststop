@@ -186,7 +186,7 @@ public class CreateMojo extends AbstractCreateMojo {
             String source = IOUtils.toString(getClass().getResourceAsStream(className +".txt"), "utf-8");
 
             source = source
-                    .replace("package org.kantega.reststop.maven", "package " + pack);
+                    .replace("package no.vegvesen.nvdb.reststop.maven", "package " + pack);
 
 
             File dest = new File(new File(sourceDir,  pack.replace('.', '/')), className);

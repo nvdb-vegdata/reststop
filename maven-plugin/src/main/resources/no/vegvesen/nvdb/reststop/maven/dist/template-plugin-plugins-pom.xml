@@ -37,13 +37,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-api</artifactId>
             <version>${reststop.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-servlet-api</artifactId>
             <version>${reststop.version}</version>
             <scope>provided</scope>
@@ -54,7 +54,7 @@
             <version>6.0.0</version>
         </dependency>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-annotation-processor</artifactId>
             <version>${reststop.version}</version>
             <scope>provided</scope>
@@ -70,7 +70,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.kantega.reststop</groupId>
+                <groupId>no.vegvesen.nvdb.reststop</groupId>
                 <artifactId>reststop-maven-plugin</artifactId>
                 <version>${reststop.version}</version>
                 <executions>

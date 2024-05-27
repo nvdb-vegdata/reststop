@@ -22,10 +22,10 @@ package no.vegvesen.nvdb.reststop.jetty.websockets;
 //import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
 //import org.eclipse.jetty.websocket.server.NativeWebSocketConfiguration;
 //import org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter;
-//import org.kantega.reststop.api.Config;
-//import org.kantega.reststop.api.Export;
-//import org.kantega.reststop.api.Plugin;
-//import org.kantega.reststop.jetty.ServletContextCustomizer;
+//import no.vegvesen.nvdb.reststop.api.Config;
+//import no.vegvesen.nvdb.reststop.api.Export;
+//import no.vegvesen.nvdb.reststop.api.Plugin;
+//import no.vegvesen.nvdb.reststop.jetty.ServletContextCustomizer;
 //
 //import jakarta.servlet.ServletException;
 //import jakarta.websocket.DeploymentException;

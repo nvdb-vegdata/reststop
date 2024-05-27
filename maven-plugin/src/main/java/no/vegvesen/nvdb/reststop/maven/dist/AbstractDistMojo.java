@@ -311,7 +311,7 @@ public abstract class AbstractDistMojo extends AbstractReststopMojo {
             deps.addAll(containerDependencies);
         }
         org.apache.maven.model.Dependency reststopCore = new org.apache.maven.model.Dependency();
-        reststopCore.setGroupId("org.kantega.reststop");
+        reststopCore.setGroupId("no.vegvesen.nvdb.reststop");
         reststopCore.setArtifactId("reststop-core");
         reststopCore.setVersion(pluginVersion);
 

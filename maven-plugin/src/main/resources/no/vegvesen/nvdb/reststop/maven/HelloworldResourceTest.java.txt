@@ -1,4 +1,4 @@
-package org.kantega.reststop.maven;
+package no.vegvesen.nvdb.reststop.maven;
 
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.containsString;

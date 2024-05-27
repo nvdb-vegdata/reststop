@@ -32,7 +32,7 @@ import java.util.Set;
 /**
  *
  */
-@SupportedAnnotationTypes("org.kantega.reststop.api.Config")
+@SupportedAnnotationTypes("no.vegvesen.nvdb.reststop.api.Config")
 @SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class ConfigParameterProcessor extends AbstractProcessor {
 

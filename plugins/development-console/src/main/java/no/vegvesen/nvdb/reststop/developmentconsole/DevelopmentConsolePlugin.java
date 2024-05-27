@@ -26,7 +26,7 @@ import no.vegvesen.nvdb.reststop.api.Plugin;
 import no.vegvesen.nvdb.reststop.api.ReststopPluginManager;
 import no.vegvesen.nvdb.reststop.core.DefaultReststopPluginManager;
 import no.vegvesen.nvdb.reststop.core.PluginState;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;

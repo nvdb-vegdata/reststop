@@ -18,7 +18,7 @@ package no.vegvesen.nvdb.reststop.helloworld.view;
 
 import no.vegvesen.nvdb.reststop.api.Export;
 import no.vegvesen.nvdb.reststop.api.Plugin;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.ServletException;

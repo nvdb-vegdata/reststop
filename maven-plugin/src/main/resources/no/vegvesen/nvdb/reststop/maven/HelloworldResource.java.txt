@@ -1,4 +1,4 @@
-package org.kantega.reststop.maven;
+package no.vegvesen.nvdb.reststop.maven;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

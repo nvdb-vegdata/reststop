@@ -30,7 +30,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-jaxrs-api</artifactId>
             <version>${reststop.version}</version>
             <scope>provided</scope>

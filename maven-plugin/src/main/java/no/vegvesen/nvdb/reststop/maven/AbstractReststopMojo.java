@@ -70,10 +70,10 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project.remoteProjectRepositories}")
     protected List<RemoteRepository> remoteRepos;
 
-    @Parameter (defaultValue = "org.kantega.reststop:reststop-webapp:war:${plugin.version}")
+    @Parameter (defaultValue = "no.vegvesen.nvdb.reststop:reststop-webapp:war:${plugin.version}")
     protected String warCoords;
 
-    @Parameter (defaultValue = "org.kantega.reststop:reststop-bootstrap:jar:${plugin.version}")
+    @Parameter (defaultValue = "no.vegvesen.nvdb.reststop:reststop-bootstrap:jar:${plugin.version}")
     protected String bootstrapCoords;
 
     @Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}.${project.packaging}")
@@ -327,12 +327,12 @@ public abstract class AbstractReststopMojo extends AbstractMojo {
 
     protected void addDevelopmentPlugins(List<Plugin> plugins) {
         {
-            Plugin devConsolePlugin = new Plugin("org.kantega.reststop", "reststop-development-console", pluginVersion);
+            Plugin devConsolePlugin = new Plugin("no.vegvesen.nvdb.reststop", "reststop-development-console", pluginVersion);
             plugins.add(devConsolePlugin);
         }
 
         {
-            Plugin developmentPlugin = new Plugin("org.kantega.reststop", "reststop-development-plugin", pluginVersion);
+            Plugin developmentPlugin = new Plugin("no.vegvesen.nvdb.reststop", "reststop-development-plugin", pluginVersion);
             plugins.add(developmentPlugin);
         }
 

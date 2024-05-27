@@ -29,7 +29,7 @@ import java.util.Set;
 /**
  *
  */
-@SupportedAnnotationTypes("org.kantega.reststop.api.Export")
+@SupportedAnnotationTypes("no.vegvesen.nvdb.reststop.api.Export")
 @SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class ExportFieldProcessor extends AbstractProcessor {
 

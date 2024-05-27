@@ -23,10 +23,10 @@ import no.vegvesen.nvdb.reststop.api.ReststopPluginManager;
 import no.vegvesen.nvdb.reststop.servlet.api.FilterPhase;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
-import org.kantega.reststop.api.*;
+import no.vegvesen.nvdb.reststop.api.*;
 import no.vegvesen.nvdb.reststop.core.DefaultReststopPluginManager;
 import no.vegvesen.nvdb.reststop.development.velocity.SectionDirective;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 
 import jakarta.servlet.Filter;
 import java.util.ArrayList;

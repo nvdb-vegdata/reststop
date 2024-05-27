@@ -66,7 +66,7 @@ public class RunMojo extends AbstractReststopRunMojo {
             context.setWebInfLib(getDependencyFiles());
         }
 
-        context.addProtectedClassMatcher(new ClassMatcher("org.kantega.reststop.classloaderutils."));
+        context.addProtectedClassMatcher(new ClassMatcher("no.vegvesen.nvdb.reststop.classloaderutils."));
         registerBuildSystem();
     }
 

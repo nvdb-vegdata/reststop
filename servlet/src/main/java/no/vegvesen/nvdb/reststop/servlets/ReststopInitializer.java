@@ -23,8 +23,8 @@ import no.vegvesen.nvdb.reststop.classloaderutils.PluginInfo;
 import no.vegvesen.nvdb.reststop.core.ClassLoaderFactory;
 import no.vegvesen.nvdb.reststop.core.DefaultReststopPluginManager;
 import no.vegvesen.nvdb.reststop.servlet.api.FilterPhase;
-import org.kantega.reststop.servlet.api.ServletBuilder;
-import org.kantega.reststop.servlet.api.ServletDeployer;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletDeployer;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
