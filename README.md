@@ -34,7 +34,7 @@ how things work. Let's start:
 
 Create Reststop project:
 
-        mvn -U no.vegvesen.nvdb.reststop:reststop-maven-plugin:RELEASE:create
+        mvn -U no.vegvesen.nvdb.reststop:reststop-maven-plugin:create
 
 Open a browser to [http://localhost:8080/helloworld/](http://localhost:8080/helloworld/)
 
