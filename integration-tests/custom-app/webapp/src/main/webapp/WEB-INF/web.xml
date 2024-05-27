@@ -26,7 +26,7 @@
     </context-param>
     <servlet>
         <servlet-name>greetings</servlet-name>
-        <servlet-class>org.kantega.reststop.custom.web.GreetingsServlet</servlet-class>
+        <servlet-class>no.vegvesen.nvdb.reststop.custom.web.GreetingsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

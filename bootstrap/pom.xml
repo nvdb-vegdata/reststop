@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Main-Class>org.kantega.reststop.bootstrap.Main</Main-Class>
+                            <Main-Class>no.vegvesen.nvdb.reststop.bootstrap.Main</Main-Class>
                         </manifestEntries>
                     </archive>
                 </configuration>

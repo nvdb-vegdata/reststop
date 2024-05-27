@@ -1,0 +1,23 @@
+package org.kantega.reststop.maven;
+
+import api.no.vegvesen.nvdb.reststop.Config;
+import api.no.vegvesen.nvdb.reststop.Plugin;
+import api.no.vegvesen.nvdb.reststop.Export;
+import jaxrsapi.no.vegvesen.nvdb.reststop.ApplicationBuilder;
+
+import jakarta.ws.rs.core.Application;
+
+
+/**
+ *
+ */
+@Plugin
+public class ExamplePlugin {
+
+    @Export final Application helloWorldApp;
+
+    public ExamplePlugin(@Config String greeting, ApplicationBuilder appBuilder) {
+        helloWorldApp = appBuilder.application().singleton(new HelloworldResource(greeting)).build();
+    }
+
+}

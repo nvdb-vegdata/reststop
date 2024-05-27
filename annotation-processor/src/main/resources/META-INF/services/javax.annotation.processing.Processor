@@ -1,4 +1,4 @@
-org.kantega.reststop.apt.ExportFieldProcessor
+no.vegvesen.nvdb.reststop.apt.ExportFieldProcessor
 org.kantega.reststop.apt.ConfigParameterProcessor
-org.kantega.reststop.apt.PluginClassProcessor
+no.vegvesen.nvdb.reststop.apt.PluginClassProcessor
 
