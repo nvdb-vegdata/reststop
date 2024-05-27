@@ -1,9 +1,9 @@
 package no.vegvesen.nvdb.reststop.maven;
 
-import api.no.vegvesen.nvdb.reststop.Config;
-import api.no.vegvesen.nvdb.reststop.Plugin;
-import api.no.vegvesen.nvdb.reststop.Export;
-import jaxrsapi.no.vegvesen.nvdb.reststop.ApplicationBuilder;
+import no.vegvesen.nvdb.reststop.api.Config;
+import no.vegvesen.nvdb.reststop.api.Plugin;
+import no.vegvesen.nvdb.reststop.api.Export;
+import no.vegvesen.nvdb.reststop.jaxrsapi.ApplicationBuilder;
 
 import jakarta.ws.rs.core.Application;
 
