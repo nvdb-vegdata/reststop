@@ -20,7 +20,7 @@ import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import no.vegvesen.nvdb.reststop.api.Export;
 import no.vegvesen.nvdb.reststop.servlet.api.FilterPhase;
 import no.vegvesen.nvdb.reststop.api.Plugin;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 import no.vegvesen.nvdb.reststop.jaxrsapi.ApplicationBuilder;
 
 import jakarta.servlet.Filter;

@@ -23,7 +23,7 @@ import io.dropwizard.metrics.servlets.MetricsServlet;
 import no.vegvesen.nvdb.reststop.api.Config;
 import no.vegvesen.nvdb.reststop.api.Export;
 import no.vegvesen.nvdb.reststop.api.Plugin;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.ServletConfig;

@@ -16,9 +16,9 @@
 
 package no.vegvesen.nvdb.reststop.helloworld.ws;
 
-//import org.kantega.reststop.api.Export;
-//import org.kantega.reststop.api.Plugin;
-//import org.kantega.reststop.servlet.api.ServletBuilder;
+//import no.vegvesen.nvdb.reststop.api.Export;
+//import no.vegvesen.nvdb.reststop.api.Plugin;
+//import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 //
 //import jakarta.servlet.Filter;
 //import jakarta.servlet.ServletContext;

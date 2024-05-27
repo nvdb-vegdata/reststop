@@ -19,7 +19,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.kantega.reststop</groupId>
+        <groupId>no.vegvesen.nvdb.reststop</groupId>
         <artifactId>reststop-plugins</artifactId>
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
@@ -34,7 +34,7 @@
             <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-cxf-plugin</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>

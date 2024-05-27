@@ -23,7 +23,7 @@ import org.apache.velocity.app.VelocityEngine;
 import no.vegvesen.nvdb.reststop.core.LoadedPluginClass;
 import no.vegvesen.nvdb.reststop.core.PluginClassInfo;
 import no.vegvesen.nvdb.reststop.core.PluginState;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 import no.vegvesen.nvdb.reststop.core.DefaultReststopPluginManager;
 
 import jakarta.servlet.*;

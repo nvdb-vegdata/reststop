@@ -25,7 +25,7 @@ import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
 import no.vegvesen.nvdb.reststop.api.Export;
 import no.vegvesen.nvdb.reststop.api.Plugin;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;

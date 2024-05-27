@@ -350,13 +350,13 @@ public class ConfDocMojo extends AbstractReststopMojo {
             }
 
             {
-                Plugin devConsolePlugin = new Plugin("org.kantega.reststop", "reststop-development-console", pluginVersion);
+                Plugin devConsolePlugin = new Plugin("no.vegvesen.nvdb.reststop", "reststop-development-console", pluginVersion);
                 plugins.add(devConsolePlugin);
             }
 
 
             {
-                Plugin developmentPlugin = new Plugin("org.kantega.reststop", "reststop-development-plugin", pluginVersion);
+                Plugin developmentPlugin = new Plugin("no.vegvesen.nvdb.reststop", "reststop-development-plugin", pluginVersion);
                 plugins.add(developmentPlugin);
             }
         }

@@ -2,8 +2,8 @@ package no.vegvesen.nvdb.reststop.deploy;
 
 import no.vegvesen.nvdb.reststop.deploy.model.Plugin;
 import no.vegvesen.nvdb.reststop.api.Config;
-import org.kantega.reststop.api.Reststop;
-import org.kantega.reststop.jaxrsapi.DefaultJaxRsPlugin;
+import no.vegvesen.nvdb.reststop.api.Reststop;
+import no.vegvesen.nvdb.reststop.jaxrsapi.DefaultJaxRsPlugin;
 
 import java.io.File;
 import java.net.URI;

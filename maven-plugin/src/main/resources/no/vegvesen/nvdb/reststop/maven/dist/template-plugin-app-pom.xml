@@ -40,7 +40,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.kantega.reststop</groupId>
+                <groupId>no.vegvesen.nvdb.reststop</groupId>
                 <artifactId>reststop-maven-plugin</artifactId>
                 <version>${reststop.version}</version>
                 <configuration>
@@ -50,37 +50,37 @@
                     <path>helloworld</path>
                     <plugins>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-servlet-deploy-plugin</artifactId>
                             <version>${reststop.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-assets-plugin</artifactId>
                             <version>${reststop.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-jaxrs-api</artifactId>
                             <version>${reststop.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-jersey-plugin</artifactId>
                             <version>${reststop.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-metrics-plugin</artifactId>
                             <version>${reststop.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-metrics-servlets-plugin</artifactId>
                             <version>${reststop.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-jetty-plugin</artifactId>
                             <version>${reststop.version}</version>
                         </plugin>
@@ -108,7 +108,7 @@
                             <version>${slf4j.version}</version>
                         </dependency>
                         <dependency>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-servlet-api</artifactId>
                             <version>${reststop.version}</version>
                         </dependency>

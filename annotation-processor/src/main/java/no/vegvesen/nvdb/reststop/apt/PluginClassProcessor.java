@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 /**
  *
  */
-@SupportedAnnotationTypes("org.kantega.reststop.api.Plugin")
+@SupportedAnnotationTypes("no.vegvesen.nvdb.reststop.api.Plugin")
 @SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class PluginClassProcessor extends AbstractProcessor {
 

@@ -52,7 +52,7 @@ public class MavenPomUtilsTest {
 
         File destination = new File(source + "_");
 
-        String groupdId = "org.kantega.reststop";
+        String groupdId = "no.vegvesen.nvdb.reststop";
         String artifactId = "reststop-test-plugin";
         String version = "1.0.1";
         mavenPomUtils.addPluginToReststop(source, destination, groupdId, artifactId, version);

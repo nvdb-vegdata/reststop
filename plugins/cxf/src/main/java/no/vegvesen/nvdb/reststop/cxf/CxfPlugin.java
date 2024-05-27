@@ -24,9 +24,9 @@ import no.vegvesen.nvdb.reststop.jaxwsapi.EndpointConfiguration;
 import no.vegvesen.nvdb.reststop.jaxwsapi.EndpointConfigurationBuilder;
 import org.apache.cxf.transport.servlet.CXFNonSpringServlet;
 import org.apache.cxf.wsdl.WSDLManager;
-import org.kantega.reststop.api.*;
-import org.kantega.reststop.jaxwsapi.EndpointDeployer;
-import org.kantega.reststop.servlet.api.ServletBuilder;
+import no.vegvesen.nvdb.reststop.api.*;
+import no.vegvesen.nvdb.reststop.jaxwsapi.EndpointDeployer;
+import no.vegvesen.nvdb.reststop.servlet.api.ServletBuilder;
 
 import jakarta.annotation.PreDestroy;
 import jakarta.servlet.Filter;

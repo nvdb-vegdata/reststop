@@ -19,7 +19,7 @@ package no.vegvesen.nvdb.reststop.cxf;
 import no.vegvesen.nvdb.reststop.jaxwsapi.EndpointConfiguration;
 import no.vegvesen.nvdb.reststop.api.Plugin;
 import no.vegvesen.nvdb.reststop.api.PluginExport;
-import org.kantega.reststop.jaxwsapi.EndpointDeployer;
+import no.vegvesen.nvdb.reststop.jaxwsapi.EndpointDeployer;
 
 import java.util.Collection;
 

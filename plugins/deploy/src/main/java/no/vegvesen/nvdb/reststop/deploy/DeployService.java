@@ -4,7 +4,7 @@ import no.vegvesen.nvdb.reststop.classloaderutils.Artifact;
 import no.vegvesen.nvdb.reststop.classloaderutils.PluginClassLoader;
 import no.vegvesen.nvdb.reststop.classloaderutils.PluginInfo;
 import org.eclipse.aether.util.artifact.JavaScopes;
-import org.kantega.reststop.api.Reststop;
+import no.vegvesen.nvdb.reststop.api.Reststop;
 import no.vegvesen.nvdb.reststop.deploy.model.Plugin;
 
 import java.io.File;

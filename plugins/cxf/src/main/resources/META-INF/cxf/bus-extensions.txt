@@ -1,2 +1,2 @@
-cxf.no.vegvesen.nvdb.reststop.ContextClassLoaderResourceResolver
-cxf.no.vegvesen.nvdb.reststop.WSDLManagerDefinitionCacheCleaner
+no.vegvesen.nvdb.reststop.cxf.ContextClassLoaderResourceResolver
+no.vegvesen.nvdb.reststop.cxf.WSDLManagerDefinitionCacheCleaner

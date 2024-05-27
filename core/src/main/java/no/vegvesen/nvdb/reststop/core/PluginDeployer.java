@@ -17,7 +17,7 @@
 package no.vegvesen.nvdb.reststop.core;
 
 import no.vegvesen.nvdb.reststop.classloaderutils.*;
-import org.kantega.reststop.classloaderutils.*;
+import no.vegvesen.nvdb.reststop.classloaderutils.*;
 
 import java.io.*;
 import java.util.*;

@@ -18,7 +18,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.kantega.reststop</groupId>
+        <groupId>no.vegvesen.nvdb.reststop</groupId>
         <artifactId>reststop-custom-app</artifactId>
         <version>${revision}</version>
     </parent>
@@ -27,21 +27,21 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-servlet</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-api</artifactId>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.kantega.reststop</groupId>
+            <groupId>no.vegvesen.nvdb.reststop</groupId>
             <artifactId>reststop-custom-app-api</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
@@ -54,7 +54,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.kantega.reststop</groupId>
+                <groupId>no.vegvesen.nvdb.reststop</groupId>
                 <artifactId>reststop-maven-plugin</artifactId>
                 <version>${project.version}</version>
                 <configuration>
@@ -76,7 +76,7 @@
                             <version>${project.version}</version>
                         </plugin>
                         <plugin>
-                            <groupId>org.kantega.reststop</groupId>
+                            <groupId>no.vegvesen.nvdb.reststop</groupId>
                             <artifactId>reststop-jaxrs-api</artifactId>
                             <version>${project.version}</version>
                         </plugin>
