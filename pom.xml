@@ -15,7 +15,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>no.vegvesen.nvdb.reststop</groupId>
     <artifactId>reststop-parent</artifactId>
@@ -47,7 +48,7 @@
         <jetty.version>12.0.9</jetty.version><!-- Also defined in template-plugin-webapp-pom.xml -->
         <maven.version>3.9.6</maven.version>
         <maven-deploy-plugin.version>3.1.2</maven-deploy-plugin.version>
-        <aether.version>1.0.0.v20140518</aether.version> <!-- TODO: maybe replace with https://maven.apache.org/resolver/ -->
+        <aether.version>1.0.0.v20140518</aether.version>
         <jexmec.version>2.0.0rc8</jexmec.version>
         <logback.version>1.1.2</logback.version>
         <slf4j.version>1.7.7</slf4j.version>
@@ -55,7 +56,6 @@
         <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
         <jakarta-validation.version>3.0.2</jakarta-validation.version>
     </properties>
-
 
     <modules>
         <module>classloader-utils</module>
@@ -73,12 +73,18 @@
     </modules>
 
     <distributionManagement>
+        <snapshotRepository>
+            <id>central</id>
+            <name>Maven Central Snapshots</name>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/nvdb-vegdata/reststop</url>
+            <id>central</id>
+            <name>Maven Central Releases</name>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
