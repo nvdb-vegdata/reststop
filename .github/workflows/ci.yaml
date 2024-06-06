@@ -30,7 +30,7 @@ jobs:
           if [ -n "${{ env.RELEASE_TAG }}" ]; then
             ./mvnw --batch-mode package -Drevision="${{ env.RELEASE_TAG }}"
           else
-            ./mvnw --batch-mode package
+            ./mvnw --batch-mode source:jar package
           fi
       - name: Publish package
         if: github.event_name == 'release' || (github.event_name == 'push' && github.ref == 'refs/heads/master')
