@@ -55,6 +55,7 @@
         <jakarta-servlet.version>6.0.0</jakarta-servlet.version><!-- Also defined in template-plugin-plugins-pom.xml -->
         <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
         <jakarta-validation.version>3.0.2</jakarta-validation.version>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
     </properties>
 
     <modules>
@@ -242,6 +243,19 @@
                         <phase>clean</phase>
                         <goals>
                             <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
