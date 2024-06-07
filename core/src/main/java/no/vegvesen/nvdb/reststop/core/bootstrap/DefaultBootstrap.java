@@ -39,20 +39,12 @@ public class DefaultBootstrap implements Bootstrap {
 
     @Override
     public void bootstrap(File globalConfigurationFile, Document pluginsXml, File repositoryDirectory, ClassLoader parentClassLoader) {
-        List<PluginInfo> parsed = PluginInfo.parse(pluginsXml);
+        List<PluginInfo> plugins = PluginInfo.parse(pluginsXml);
 
         manager = new DefaultReststopPluginManager(parentClassLoader, globalConfigurationFile);
 
-        ClassLoaderFactory classLoaderFactory = new DefaultClassLoaderFactory(repositoryDirectory);
-
-        deployPlugins(parsed, classLoaderFactory);
-
+        manager.deploy(plugins, new DefaultClassLoaderFactory(repositoryDirectory));
     }
-
-    private void deployPlugins(List<PluginInfo> plugins, ClassLoaderFactory classLoaderFactory) {
-        manager.deploy(plugins, classLoaderFactory);
-    }
-
 
 
     private File getPluginFile(Artifact artifact, File repoDir) {

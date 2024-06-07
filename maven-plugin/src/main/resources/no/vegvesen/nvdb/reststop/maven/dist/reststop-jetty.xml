@@ -15,12 +15,12 @@
   ~ limitations under the License.
   -->
 
-<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_10_0.dtd">
 <Configure class="org.eclipse.jetty.server.Server">
     <Ref refid="Contexts">
         <Call name="addHandler">
             <Arg>
-                <New class="org.eclipse.jetty.webapp.WebAppContext">
+                <New class="org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext">
                     <Set name="contextPath">CONTEXTPATH</Set>
                     <Set name="war"><SystemProperty name="jetty.home" default="."/>/RESTSTOPWAR
                     </Set>
