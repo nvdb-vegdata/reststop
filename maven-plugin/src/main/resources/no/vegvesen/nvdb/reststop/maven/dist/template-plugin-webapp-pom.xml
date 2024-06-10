@@ -147,9 +147,9 @@
                         </systemProperty>
                     </systemProperties>
                     <contextXml>${basedir}/src/test/jetty/context.xml</contextXml>
-                    <webAppConfig>
+                    <webApp>
                         <contextPath>/</contextPath>
-                    </webAppConfig>
+                    </webApp>
                 </configuration>
             </plugin>
             <plugin>
