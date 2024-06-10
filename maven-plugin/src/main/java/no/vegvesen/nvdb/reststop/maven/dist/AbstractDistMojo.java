@@ -81,7 +81,7 @@ public abstract class AbstractDistMojo extends AbstractReststopMojo {
 
     private final String jettydistPrefix = "org.eclipse.jetty:jetty-home:tar.gz:";
 
-    @Parameter(defaultValue = "7.0.42")
+    @Parameter(defaultValue = "${tomcat.version}")
     protected String tomcatVersion;
 
     private final String tomcatdistPrefix = "org.apache.tomcat:tomcat:tar.gz:";
