@@ -15,9 +15,9 @@
   ~ limitations under the License.
   -->
 
-<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "https://eclipse.dev/jetty/configure_10_0.dtd">
 
-<Configure id="Webapp" class="org.eclipse.jetty.webapp.WebAppContext">
+<Configure id="Webapp" class="org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext">
 
     <Call name="setInitParameter">
         <Arg>plugins.xml</Arg>
