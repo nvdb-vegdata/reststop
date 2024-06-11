@@ -135,16 +135,9 @@
                 <artifactId>jetty-ee10-maven-plugin</artifactId>
                 <version>12.0.9</version>
                 <configuration>
-
                     <systemProperties>
-                        <systemProperty>
-                            <name>reststopPort</name>
-                            <value>${reststopPort}</value>
-                        </systemProperty>
-                        <systemProperty>
-                            <name>basedir</name>
-                            <value>${basedir}</value>
-                        </systemProperty>
+                        <reststopPort>${reststopPort}</reststopPort>
+                        <basedir>${basedir}</basedir>
                     </systemProperties>
                     <contextXml>${basedir}/src/test/jetty/context.xml</contextXml>
                     <webApp>
