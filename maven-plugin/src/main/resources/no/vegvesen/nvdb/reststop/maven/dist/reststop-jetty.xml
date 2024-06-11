@@ -20,7 +20,7 @@
     <Ref refid="Contexts">
         <Call name="addHandler">
             <Arg>
-                <New class="org.eclipse.jetty.webapp.WebAppContext">
+                <New class="org.eclipse.jetty.ee10.webapp.WebAppContext">
                     <Set name="contextPath">CONTEXTPATH</Set>
                     <Set name="war"><SystemProperty name="jetty.home" default="."/>/RESTSTOPWAR
                     </Set>
