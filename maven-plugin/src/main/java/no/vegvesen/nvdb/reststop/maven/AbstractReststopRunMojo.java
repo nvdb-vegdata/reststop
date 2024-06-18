@@ -17,6 +17,8 @@
 package no.vegvesen.nvdb.reststop.maven;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import no.vegvesen.nvdb.reststop.classloaderutils.BuildSystem;
 import no.vegvesen.nvdb.reststop.classloaderutils.PluginClassLoader;
 import no.vegvesen.nvdb.reststop.classloaderutils.PluginInfo;
@@ -36,13 +38,13 @@ import org.eclipse.aether.collection.CollectRequest;
 import org.eclipse.aether.graph.Exclusion;
 import org.eclipse.aether.repository.RemoteRepository;
 import org.eclipse.aether.resolution.DependencyResolutionException;
-import org.eclipse.jetty.ee.WebAppClassLoading;
-import org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext;
-import org.eclipse.jetty.ee10.webapp.Configurations;
-import org.eclipse.jetty.ee10.webapp.WebAppContext;
+import org.eclipse.jetty.maven.plugin.MavenWebAppContext;
+import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.webapp.ClassMatcher;
+import org.eclipse.jetty.webapp.Configurations;
+import org.eclipse.jetty.webapp.WebAppContext;
 import org.eclipse.jetty.server.*;
-import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.util.Callback;
 
 import java.io.File;
 import java.io.IOException;
@@ -132,7 +134,7 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
                     "org.twdata.",
                     "com.googlecode.");
 
-            serverClasses.forEach(WebAppClassLoading::addProtectedClasses);
+            serverClasses.forEach(serverClass -> context.addServerClassMatcher(new ClassMatcher(serverClass)));
             getLog().info("Added system classes: " + serverClasses);
 
             context.setWar(war.getAbsolutePath());
@@ -149,10 +151,10 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
             jettyTmpDir.mkdirs();
             context.setTempDirectory(jettyTmpDir);
             boolean deleteTempDirectory= jettyTmpDir.exists() && war.lastModified() > jettyTmpDir.lastModified();
-            context.setTempDirectoryPersistent(!deleteTempDirectory);
+            context.setPersistTempDirectory(!deleteTempDirectory);
             context.setThrowUnavailableOnStartupException(true);
 
-            ContextHandlerCollection handlers = new ContextHandlerCollection(true);
+            HandlerCollection handlers = new HandlerCollection();
 
             handlers.addHandler(new ShutdownHandler(context, server, getLog()));
             server.setHandler(handlers);
@@ -213,7 +215,7 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
         }
     }
 
-    private class ShutdownHandler extends Handler.Abstract {
+    private class ShutdownHandler extends AbstractHandler {
         private final WebAppContext context;
         private final Server server;
         private final Log log;
@@ -225,8 +227,9 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
         }
 
         @Override
-        public boolean handle(Request request, Response response, Callback callback) throws Exception {
-            if("/shutdown".equals(request.getHttpURI().getDecodedPath()) && ! (server.isStopping() || server.isStopped())) {
+        public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws ServletException {
+
+            if("/shutdown".equals(target) && ! (server.isStopping() || server.isStopped())) {
                 try {
                     log.info("Shutting down Jetty server");
                     new Thread() {
@@ -243,9 +246,8 @@ public abstract class AbstractReststopRunMojo extends AbstractReststopMojo {
                 } catch (Exception e) {
                     throw new ServletException(e);
                 }
-                return true;
+                baseRequest.setHandled(true);
             }
-            return false;
         }
     }
 
