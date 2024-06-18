@@ -16,7 +16,7 @@
 
 package no.vegvesen.nvdb.reststop.jetty;
 
-import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletContextHandler;
 
 import jakarta.servlet.ServletException;
 
