@@ -44,7 +44,7 @@
     <properties>
         <revision>4.0.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey.version>3.1.6</jersey.version>
+        <jersey.version>3.0.14</jersey.version> <!-- EE9 -->
         <jetty.version>11.0.21</jetty.version><!-- Also defined in template-plugin-webapp-pom.xml -->
         <maven.version>3.9.6</maven.version>
         <maven-deploy-plugin.version>3.1.2</maven-deploy-plugin.version>
@@ -52,11 +52,14 @@
         <jexmec.version>2.0.0rc8</jexmec.version>
         <logback.version>1.1.2</logback.version>
         <slf4j.version>1.7.7</slf4j.version>
-        <jakarta-servlet.version>5.0.0</jakarta-servlet.version><!-- Also defined in template-plugin-plugins-pom.xml -->
-        <jakarta-annotation.version>3.0.0</jakarta-annotation.version>
-        <jakarta-validation.version>3.0.2</jakarta-validation.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <tomcat.version>10.1.24</tomcat.version>
+        <tomcat.version>10.1.24</tomcat.version> <!-- EE9 -->
+        <jaxb.version>3.0.2</jaxb.version> <!-- EE9 -->
+        <!-- Versions taken from jakartaee-bom -->
+        <jakarta.validation-api.version>3.0.0</jakarta.validation-api.version>
+        <jakarta.servlet-api.version>5.0.0</jakarta.servlet-api.version>
+        <jakarta.websocket-api.version>2.0.0</jakarta.websocket-api.version>
+        <jakarta.xml.ws-api.version>3.0.1</jakarta.xml.ws-api.version>
     </properties>
 
     <modules>
@@ -152,22 +155,15 @@
                 <version>${project.version}</version>
             </dependency>
             <!-- External deps -->
-            <dependency>
-                <groupId>jakarta.servlet</groupId>
-                <artifactId>jakarta.servlet-api</artifactId>
-                <version>${jakarta-servlet.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>jakarta.annotation</groupId>
-                <artifactId>jakarta.annotation-api</artifactId>
-                <version>${jakarta-annotation.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>jakarta.validation</groupId>
-                <artifactId>jakarta.validation-api</artifactId>
-                <version>${jakarta-validation.version}</version>
-            </dependency>
 
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-bom</artifactId>
+                <version>9.1.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            
             <dependency>
                 <groupId>org.kantega.jexmec</groupId>
                 <artifactId>jexmec-manager</artifactId>
