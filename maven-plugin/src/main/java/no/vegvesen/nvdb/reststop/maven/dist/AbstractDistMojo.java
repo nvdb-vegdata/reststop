@@ -449,7 +449,7 @@ public abstract class AbstractDistMojo extends AbstractReststopMojo {
         } else {
             Properties props = new Properties();
             try {
-                props.load(getClass().getClassLoader().getResourceAsStream("META-INF/maven/org.eclipse.jetty/jetty-webapp/pom.properties"));
+                props.load(getClass().getClassLoader().getResourceAsStream("META-INF/maven/org.eclipse.jetty.ee10/jetty-ee10-webapp/pom.properties"));
                 return props.getProperty("version");
             } catch (IOException e) {
                 throw new MojoExecutionException("Can't load pom.properties", e);

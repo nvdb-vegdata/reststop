@@ -20,9 +20,9 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.*;
 import org.apache.maven.shared.invoker.Invoker;
-import org.eclipse.jetty.maven.plugin.MavenWebAppContext;
+import org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.webapp.ClassMatcher;
+import org.eclipse.jetty.util.ClassMatcher;
 
 import java.awt.*;
 import java.io.File;
@@ -66,7 +66,7 @@ public class RunMojo extends AbstractReststopRunMojo {
             context.setWebInfLib(getDependencyFiles());
         }
 
-        context.addSystemClassMatcher(new ClassMatcher("no.vegvesen.nvdb.reststop.classloaderutils."));
+        context.addProtectedClassMatcher(new ClassMatcher("no.vegvesen.nvdb.reststop.classloaderutils."));
         registerBuildSystem();
     }
 
