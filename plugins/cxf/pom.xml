@@ -42,7 +42,7 @@
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
-            <version>4.0.5</version>
+            <version>${jaxb.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -63,7 +63,6 @@
         <dependency>
             <groupId>jakarta.xml.ws</groupId>
             <artifactId>jakarta.xml.ws-api</artifactId>
-            <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
