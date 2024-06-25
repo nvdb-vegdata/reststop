@@ -18,8 +18,8 @@ package no.vegvesen.nvdb.reststop.jetty;
 
 import no.vegvesen.nvdb.reststop.servlets.ReststopInitializer;
 import org.eclipse.jetty.server.*;
-import org.eclipse.jetty.servlet.FilterHolder;
-import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.FilterHolder;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
 import no.vegvesen.nvdb.reststop.api.Config;
 import no.vegvesen.nvdb.reststop.api.Export;
 import no.vegvesen.nvdb.reststop.api.Plugin;

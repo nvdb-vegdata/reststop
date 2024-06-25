@@ -38,7 +38,7 @@ import org.eclipse.aether.resolution.DependencyResolutionException;
 import org.eclipse.aether.resolution.DependencyResult;
 import org.eclipse.aether.util.artifact.JavaScopes;
 import org.eclipse.aether.util.filter.DependencyFilterUtils;
-import org.eclipse.jetty.maven.plugin.MavenWebAppContext;
+import org.eclipse.jetty.ee10.maven.plugin.MavenWebAppContext;
 import org.eclipse.jetty.server.Server;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
