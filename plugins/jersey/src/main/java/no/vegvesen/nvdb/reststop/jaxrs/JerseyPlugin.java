@@ -99,6 +99,7 @@ public class JerseyPlugin implements ApplicationDeployer, ApplicationBuilder {
     private ResourceConfig getResourceConfig(Application application) {
         ResourceConfig resourceConfig = ResourceConfig.forApplication(application);
         resourceConfig.register(JacksonFeature.class);
+        resourceConfig.register(JacksonContextResolver.class);
         Map<String, Object> props = new HashMap<>(resourceConfig.getProperties());
         props.put(ServletProperties.FILTER_FORWARD_ON_404, "true");
         resourceConfig.setProperties(props);
