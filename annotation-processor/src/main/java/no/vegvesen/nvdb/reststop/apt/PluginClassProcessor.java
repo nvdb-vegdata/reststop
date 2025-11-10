@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
  *
  */
 @SupportedAnnotationTypes("no.vegvesen.nvdb.reststop.api.Plugin")
-@SupportedSourceVersion(SourceVersion.RELEASE_21)
+@SupportedSourceVersion(SourceVersion.RELEASE_25)
 public class PluginClassProcessor extends AbstractProcessor {
 
     private Set<String> pluginClasses = new TreeSet<>();

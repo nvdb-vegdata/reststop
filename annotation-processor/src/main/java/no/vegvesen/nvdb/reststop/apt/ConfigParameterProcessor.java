@@ -33,7 +33,7 @@ import java.util.Set;
  *
  */
 @SupportedAnnotationTypes("no.vegvesen.nvdb.reststop.api.Config")
-@SupportedSourceVersion(SourceVersion.RELEASE_21)
+@SupportedSourceVersion(SourceVersion.RELEASE_25)
 public class ConfigParameterProcessor extends AbstractProcessor {
 
 
