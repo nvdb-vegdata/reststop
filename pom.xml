@@ -44,17 +44,19 @@
     <properties>
         <revision>4.0.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jersey.version>3.1.7</jersey.version>
-        <jetty.version>12.0.10</jetty.version><!-- Also defined in template-plugin-webapp-pom.xml -->
+        <jersey.version>3.1.11</jersey.version>
+        <jetty.version>12.1.6</jetty.version><!-- Also defined in template-plugin-webapp-pom.xml -->
         <maven.version>3.9.6</maven.version>
         <maven-deploy-plugin.version>3.1.2</maven-deploy-plugin.version>
-        <aether.version>1.0.0.v20140518</aether.version>
+        <aether.version>1.1.0</aether.version>
         <jexmec.version>2.0.0rc8</jexmec.version>
-        <logback.version>1.1.2</logback.version>
-        <slf4j.version>1.7.7</slf4j.version>
+        <logback.version>1.5.29</logback.version>
+        <slf4j.version>2.0.17</slf4j.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <tomcat.version>10.1.24</tomcat.version>
         <jaxb.version>4.0.5</jaxb.version>
+        <junit.version>4.13.2</junit.version>
+        <commons-io.version>2.21.0</commons-io.version>
         <!-- Versions taken from jakartaee-bom -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
@@ -179,7 +181,7 @@
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>1.4</version>
+                <version>${commons-io.version}</version>
             </dependency>
 
             <dependency>
@@ -199,7 +201,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.11</version>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
 
