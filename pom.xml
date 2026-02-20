@@ -79,6 +79,7 @@
         <module>integration-tests/custom-app</module>
     </modules>
 
+<!--
     <distributionManagement>
         <snapshotRepository>
             <id>central</id>
@@ -91,6 +92,7 @@
             <url>https://s01.oss.sonatype.org/content/repositories/releases</url>
         </repository>
     </distributionManagement>
+-->
 
     <dependencies>
         <dependency>
@@ -222,6 +224,15 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.9.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
